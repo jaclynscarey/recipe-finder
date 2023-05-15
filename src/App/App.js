@@ -13,7 +13,11 @@ export default function App() {
   return (
     <main>
       <NavBar />
+      <IntroPage />
+      <CategoriesPage />
+      <SearchPage />
       <ResultsPage />
+      <RecipePage />
     </main>
   )
 }
