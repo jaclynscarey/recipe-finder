@@ -12,6 +12,7 @@ import RecipePage from '../pages/RecipePage/RecipePage';
 export default function App() {
   return (
     <main>
+      <NavBar />
       <ResultsPage />
     </main>
   )
