@@ -8,9 +8,10 @@ section {
   border: 2px solid black;
 }
 
-div.categories-container {
+div.categories-container, div.dish-container {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
   border: 1px solid black;
 }
 

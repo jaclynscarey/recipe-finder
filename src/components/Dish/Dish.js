@@ -1,3 +1,5 @@
+import './Dish.css';
+
 export default function Dish({ dish }) {
     return (
         <div className="dish-div">

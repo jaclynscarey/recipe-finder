@@ -6,7 +6,7 @@ export default function ResultsPage() {
     return (
         <section>
             <h1>Results for 'search term'</h1>
-            <div>
+            <div className='dish-container'>
                 {dishes.map((dish) => (
                     <Dish dish={dish} />
                 ))}
