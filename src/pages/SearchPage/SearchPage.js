@@ -1,7 +1,9 @@
-export default function SearchPage() {
+import SearchForm from "../../components/SearchForm/SearchForm";
+
+export default function SearchPage({ category }) {
     return (
         <section>
-            SearchPage
+            <SearchForm category={category} />
         </section>
     )
 }

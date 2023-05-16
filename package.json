@@ -47,5 +47,6 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
-  }
+  },
+  "proxy": "https://localhost:3000"
 }
