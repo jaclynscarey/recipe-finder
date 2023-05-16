@@ -10,13 +10,16 @@ import ResultsPage from '../pages/ResultsPage/ResultsPage';
 import RecipePage from '../pages/RecipePage/RecipePage';
 
 export default function App() {
+  const categories = ['Nationality', 'Ingredient', 'Name'];
+  const dishes = ['pasta', 'steak', 'chicken', 'lasagna', 'apple pie', 'ice cream', 'Pizza', 'Picanha', 'Spaghetti', 'Baiao-de-Dois'];
+
   return (
     <main>
       <NavBar />
       <IntroPage />
-      <CategoriesPage />
+      <CategoriesPage categories={categories}/>
       <SearchPage />
-      <ResultsPage />
+      <ResultsPage dishes={dishes}/>
       <RecipePage />
     </main>
   )

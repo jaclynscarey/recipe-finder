@@ -1,8 +1,6 @@
 import Category from "../../components/Category/Category";
 
-export default function CategoriesPage() {
-    const categories = ['Nationality', 'Ingredient', 'Name'];
-
+export default function CategoriesPage({ categories }) {   
     return (
         <section>
             <h1>Search by:</h1>
