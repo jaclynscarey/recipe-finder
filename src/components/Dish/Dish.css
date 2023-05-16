@@ -1,6 +1,21 @@
 div.dish-div {
     border: 1px solid black;
     width: 200px;
-    height: 200px;
-    margin: 50px;
+    height: 250px;
+    margin: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+img.dish-thumb {
+    width: 175px;
+    height: 175px;
+}
+
+h4.dish-name {
+    width: 150px;
+    text-align: center;
+    word-wrap: normal;
 }

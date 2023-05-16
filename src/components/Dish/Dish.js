@@ -1,11 +1,13 @@
 import './Dish.css';
 
-export default function Dish({ dish }) {
+export default function Dish({ dish, key }) {
     
+    console.log(key);
+
     return (
-        <div className="meal-div">
-            <img className="meal-thumb" src={dish['strMealThumb']} alt="" />
-            <h4 className="meal-name">{dish['strMeal']}</h4>
+        <div className="dish-div" id={key} >
+            <img className="dish-thumb" src={dish['strMealThumb']} alt={dish['strMeal']} />
+            <h4 className="dish-name">{dish['strMeal']}</h4>
         </div>
     )
 }

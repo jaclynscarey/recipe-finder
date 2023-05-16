@@ -14,8 +14,6 @@ export default function App() {
   const [searchTerm, setSearchTerm] = useState(null);
   const [results, setResults] = useState([]);
 
-  // console.log("results from App: " + typeof(results))
-
   const categories = ['Nationality', 'Ingredient', 'Name'];
 
   return (

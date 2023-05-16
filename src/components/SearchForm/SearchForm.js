@@ -12,7 +12,6 @@ export default function SearchForm({ searchTerm, setSearchTerm, setResults, cate
             const results = await response.json();
             const resultsArr = results['meals'];
             setResults(resultsArr);
-            console.log("results from SearchForm: " + typeof(resultsArr))
 
         } catch (error) {
             
