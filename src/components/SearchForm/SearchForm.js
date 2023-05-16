@@ -10,9 +10,9 @@ export default function SearchForm({ searchTerm, setSearchTerm, setResults, cate
             const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchTerm}`); // search by dish name
 
             const results = await response.json();
-            const resultsArr = results.meals;
-            console.log(resultsArr);
+            const resultsArr = results['meals'];
             setResults(resultsArr);
+            console.log("results from SearchForm: " + typeof(resultsArr))
 
         } catch (error) {
             

@@ -14,8 +14,9 @@ export default function App() {
   const [searchTerm, setSearchTerm] = useState(null);
   const [results, setResults] = useState([]);
 
+  // console.log("results from App: " + typeof(results))
+
   const categories = ['Nationality', 'Ingredient', 'Name'];
-  const dishes = ['pasta', 'steak', 'chicken', 'lasagna', 'apple pie', 'ice cream', 'Pizza', 'Picanha', 'Spaghetti', 'Baiao-de-Dois'];
 
   return (
     <main>
@@ -23,7 +24,7 @@ export default function App() {
       <IntroPage />
       <CategoriesPage categories={categories}/>
       <SearchPage searchTerm={searchTerm} setSearchTerm={setSearchTerm} setResults={setResults} />
-      <ResultsPage searchTerm={searchTerm} dishes={dishes}/>
+      <ResultsPage searchTerm={searchTerm} results={results} />
       <RecipePage />
     </main>
   )

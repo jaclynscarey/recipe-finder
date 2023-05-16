@@ -1,10 +1,11 @@
 import './Dish.css';
 
 export default function Dish({ dish }) {
+    
     return (
-        <div className="dish-div">
-            <img className="dish-thumb" src="#" alt={dish} />
-            <h4 className="dish-name">{dish}</h4>
+        <div className="meal-div">
+            <img className="meal-thumb" src={dish['strMealThumb']} alt="" />
+            <h4 className="meal-name">{dish['strMeal']}</h4>
         </div>
     )
 }
