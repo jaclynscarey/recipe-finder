@@ -1,8 +1,4 @@
-import { useState } from "react";
-
-export default function SearchForm({ category }) {
-    const [searchTerm, setSearchTerm] = useState(null);
-
+export default function SearchForm({ searchTerm, setSearchTerm, setResults, category }) {
     function handleChange(event) {
         setSearchTerm(event.target.value);
     };
@@ -12,10 +8,11 @@ export default function SearchForm({ category }) {
         
         try {
             const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchTerm}`); // search by dish name
-            console.log(response);
 
             const results = await response.json();
-            console.log(results.result);
+            const resultsArr = results.meals;
+            console.log(resultsArr);
+            setResults(resultsArr);
 
         } catch (error) {
             

@@ -1,5 +1,6 @@
 import './App.css';
-import { Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
+// import { Routes, Route } from 'react-router-dom';
 
 import NavBar from '../components/NavBar/NavBar'
 
@@ -10,6 +11,9 @@ import ResultsPage from '../pages/ResultsPage/ResultsPage';
 import RecipePage from '../pages/RecipePage/RecipePage';
 
 export default function App() {
+  const [searchTerm, setSearchTerm] = useState(null);
+  const [results, setResults] = useState([]);
+
   const categories = ['Nationality', 'Ingredient', 'Name'];
   const dishes = ['pasta', 'steak', 'chicken', 'lasagna', 'apple pie', 'ice cream', 'Pizza', 'Picanha', 'Spaghetti', 'Baiao-de-Dois'];
 
@@ -18,8 +22,8 @@ export default function App() {
       <NavBar />
       <IntroPage />
       <CategoriesPage categories={categories}/>
-      <SearchPage />
-      <ResultsPage dishes={dishes}/>
+      <SearchPage searchTerm={searchTerm} setSearchTerm={setSearchTerm} setResults={setResults} />
+      <ResultsPage searchTerm={searchTerm} dishes={dishes}/>
       <RecipePage />
     </main>
   )
