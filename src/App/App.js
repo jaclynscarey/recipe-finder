@@ -12,9 +12,9 @@ import RecipePage from '../pages/RecipePage/RecipePage';
 
 export default function App() {
   const [searchTerm, setSearchTerm] = useState(null);
-  const [results, setResults] = useState([]);
-  const [category, setCategory] = useState(null)
-
+  const [results, setResults] = useState(null);
+  const [mealResult, setMealResult] = useState([]);
+  const [category, setCategory] = useState(null);
 
   return (
     <main>
@@ -22,8 +22,8 @@ export default function App() {
       <IntroPage />
       <CategoriesPage setCategory={setCategory}/>
       <SearchPage searchTerm={searchTerm} setSearchTerm={setSearchTerm} setResults={setResults} category={category} />
-      <ResultsPage searchTerm={searchTerm} results={results} />
-      <RecipePage />
+      <ResultsPage searchTerm={searchTerm} results={results} setMealResult={setMealResult} />
+      <RecipePage mealResult={mealResult} />
     </main>
   )
 }
