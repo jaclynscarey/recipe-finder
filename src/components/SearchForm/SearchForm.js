@@ -1,4 +1,13 @@
 export default function SearchForm({ searchTerm, setSearchTerm, setResults, category }) {
+    const BASE_URL = "https://www.themealdb.com/api/json/v1/1/";
+    const endpoint = {
+        "Nationality": "filter.php?a=",
+        "Ingredient": "filter.php?i=",
+        "Name": "search.php?s=",
+    }
+
+    console.log(endpoint[category])
+    
     function handleChange(event) {
         setSearchTerm(event.target.value);
     };
@@ -7,7 +16,7 @@ export default function SearchForm({ searchTerm, setSearchTerm, setResults, cate
         event.preventDefault();
         
         try {
-            const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchTerm}`); // search by dish name
+            const response = await fetch(`${BASE_URL}${endpoint[category]}${searchTerm}`); // search by dish name
 
             const results = await response.json();
             const resultsArr = results['meals'];
