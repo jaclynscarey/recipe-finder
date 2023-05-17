@@ -24,7 +24,7 @@ export default function SearchForm({ searchTerm, setSearchTerm, setResults, cate
             const resultsArr = results['meals'];
             setResults(resultsArr);
 
-            navigate('/search/results');
+            navigate(`/search/results/${searchTerm}`);
 
         } catch (error) {
             
