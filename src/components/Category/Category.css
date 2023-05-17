@@ -1,6 +1,20 @@
 div.category-div {
     border: 1px solid black;
     width: 200px;
-    height: 200px;
-    margin: 50px;
+    height: 250px;
+    margin: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.category-img {
+    width: 175px;
+}
+
+.category-h4 {
+    width: 100px;
+    text-align: center;
+    word-wrap: normal;
 }

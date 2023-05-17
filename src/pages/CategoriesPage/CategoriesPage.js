@@ -9,7 +9,7 @@ export default function CategoriesPage({ setCategory }) {
             <h1>Search by:</h1>
             <div className="categories-container">
                 {categories.map((category) => (
-                    <Category setCategory={setCategory} category={category} />
+                    <Category setCategory={setCategory} category={category} categories={categories} />
                 ))}
             </div>
         </section>

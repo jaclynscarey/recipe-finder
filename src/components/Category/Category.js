@@ -1,20 +1,18 @@
 import './Category.css';
 
-export default function Category({ setCategory, category }) {
+export default function Category({ setCategory, category, categories }) {
     function handleClick(event) {
-        if (event.target.className.includes('Name')) {
-            setCategory('Name');
-        } else if (event.target.className.includes('Nationality')) {
-            setCategory('Nationality');
-        } else if (event.target.className.includes('Ingredient')) {
-            setCategory('Ingredient')
-        }
+        categories.forEach(x => {
+            if (event.target.className.includes(x)) {
+                setCategory(x);
+            }
+        });
     }
 
     return (
         <div onClick={handleClick} className={`category-div ${category}`}>
-            <img src="#" alt={category} className={`${category}`} />
-            <h4 className={`${category}`}>Search by {category}</h4>
+            <img src={`${process.env.PUBLIC_URL}/${category}.jpg`} alt={category} className={`${category} category-img`} />
+            <h4 className={`${category} category-h4`}>Search by {category}</h4>
         </div>
     )
 }
