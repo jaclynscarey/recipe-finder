@@ -20,7 +20,7 @@ export default function SearchForm({ searchTerm, setSearchTerm, setResults, cate
 
     return (
         <form onSubmit={handleSubmit}>
-            <label><h1>Find Recipes by 'category'</h1></label>
+            <label><h1>Find Recipes by {category}</h1></label>
             <input type="text" value={searchTerm} onChange={handleChange} placeholder={`Search by ${category}`} required />
             <button type="submit">Search</button>
         </form>

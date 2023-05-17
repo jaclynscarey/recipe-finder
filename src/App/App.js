@@ -21,7 +21,7 @@ export default function App() {
       <NavBar />
       <IntroPage />
       <CategoriesPage setCategory={setCategory}/>
-      <SearchPage searchTerm={searchTerm} setSearchTerm={setSearchTerm} setResults={setResults} />
+      <SearchPage searchTerm={searchTerm} setSearchTerm={setSearchTerm} setResults={setResults} category={category} />
       <ResultsPage searchTerm={searchTerm} results={results} />
       <RecipePage />
     </main>
