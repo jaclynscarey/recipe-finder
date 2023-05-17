@@ -1,6 +1,6 @@
 import './App.css';
 import { useState } from 'react';
-// import { Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 import NavBar from '../components/NavBar/NavBar'
 
@@ -19,11 +19,13 @@ export default function App() {
   return (
     <main>
       <NavBar />
-      <IntroPage />
-      <CategoriesPage setCategory={setCategory}/>
-      <SearchPage searchTerm={searchTerm} setSearchTerm={setSearchTerm} setResults={setResults} category={category} />
-      <ResultsPage searchTerm={searchTerm} results={results} setMealResult={setMealResult} />
-      <RecipePage mealResult={mealResult} />
+      <Routes>
+        <Route exact path='/' element={<IntroPage />} />
+        <Route path='/category' element={<CategoriesPage setCategory={setCategory}/>} />
+        <Route path='/search' element={<SearchPage searchTerm={searchTerm} setSearchTerm={setSearchTerm} setResults={setResults} category={category} />} />
+        <Route path='/search/results' element={<ResultsPage searchTerm={searchTerm} results={results} setMealResult={setMealResult} />} />
+        <Route path='/search/recipe/:id' element={<RecipePage mealResult={mealResult} />} />          
+      </Routes>
     </main>
   )
 }

@@ -1,6 +1,9 @@
+import { useNavigate } from 'react-router-dom';
 import './Dish.css';
 
 export default function Dish({ dish, id, setMealResult }) {
+    const navigate = useNavigate();
+
     async function handleClick(event) {
         event.preventDefault();
 
@@ -8,6 +11,8 @@ export default function Dish({ dish, id, setMealResult }) {
             const mealResponse = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`) 
             const mealResults = await mealResponse.json();
             setMealResult(mealResults.meals[0])
+
+            navigate(`/search/recipe/${id}`)
         
         } catch (error) {
             

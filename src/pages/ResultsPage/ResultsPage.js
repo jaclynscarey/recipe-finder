@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Dish from '../../components/Dish/Dish';
 
 export default function ResultsPage({ results, searchTerm, setMealResult }) {
-    const [id, setId] = useState(null);
     return (
         <section>
             <h1>Results for {searchTerm}</h1>

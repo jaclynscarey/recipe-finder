@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 export default function SearchForm({ searchTerm, setSearchTerm, setResults, category }) {
     const BASE_URL = "https://www.themealdb.com/api/json/v1/1/";
     const endpoint = {
@@ -6,7 +8,7 @@ export default function SearchForm({ searchTerm, setSearchTerm, setResults, cate
         "Name": "search.php?s=",
     }
 
-    console.log(endpoint[category])
+    const navigate = useNavigate();
     
     function handleChange(event) {
         setSearchTerm(event.target.value);
@@ -21,6 +23,8 @@ export default function SearchForm({ searchTerm, setSearchTerm, setResults, cate
             const results = await response.json();
             const resultsArr = results['meals'];
             setResults(resultsArr);
+
+            navigate('/search/results');
 
         } catch (error) {
             
