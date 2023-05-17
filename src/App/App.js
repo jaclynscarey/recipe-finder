@@ -13,14 +13,14 @@ import RecipePage from '../pages/RecipePage/RecipePage';
 export default function App() {
   const [searchTerm, setSearchTerm] = useState(null);
   const [results, setResults] = useState([]);
+  const [category, setCategory] = useState(null)
 
-  const categories = ['Nationality', 'Ingredient', 'Name'];
 
   return (
     <main>
       <NavBar />
       <IntroPage />
-      <CategoriesPage categories={categories}/>
+      <CategoriesPage setCategory={setCategory}/>
       <SearchPage searchTerm={searchTerm} setSearchTerm={setSearchTerm} setResults={setResults} />
       <ResultsPage searchTerm={searchTerm} results={results} />
       <RecipePage />

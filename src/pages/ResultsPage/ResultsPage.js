@@ -12,7 +12,7 @@ export default function ResultsPage({ results, searchTerm }) {
             { results ?
                 <div className='dish-container'>
                     {meals.map((meal) => 
-                        <Dish key={meal['idMeal']} dish={meal}/>
+                        <Dish dish={meal}/>
                     )}
                 </div>
                 : "Your search had no results"

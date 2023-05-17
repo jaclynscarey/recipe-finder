@@ -1,12 +1,15 @@
+import { useState } from "react";
 import Category from "../../components/Category/Category";
 
-export default function CategoriesPage({ categories }) {   
+export default function CategoriesPage({ setCategory }) {
+    const categories = ['Nationality', 'Ingredient', 'Name'];
+
     return (
         <section>
             <h1>Search by:</h1>
             <div className="categories-container">
                 {categories.map((category) => (
-                    <Category category={category} />
+                    <Category setCategory={setCategory} category={category} />
                 ))}
             </div>
         </section>
