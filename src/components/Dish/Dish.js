@@ -21,7 +21,7 @@ export default function Dish({ dish, id, setMealResult }) {
 
     return (
         <div onClick={handleClick} className="dish-div">
-            <img className="dish-thumb" src={dish['strMealThumb']} alt={dish['strMeal']} />
+            <img className="dish-thumb" src={`${dish['strMealThumb']}`} alt={dish['strMeal']} />
             <h4 className="dish-name">{dish['strMeal']}</h4>
         </div>
     )
