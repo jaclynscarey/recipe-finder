@@ -20,7 +20,7 @@ export default function IntroPage() {
 
     if (!randomDish) {
         return (
-            <div>
+            <div className="hourglass-div">
                 <img className="hourglass" src={`${process.env.PUBLIC_URL}/hourglass.png`} alt="hourglass" />
             </div>
         )
@@ -35,9 +35,10 @@ export default function IntroPage() {
                 <img className="random-img" src={randomDish['strMealThumb']} alt={randomDish['strMeal']} />
             </div>
             <div className="right-div">
-                <h3>Like what you see??</h3>
-                <h1>Use our 'Search' button above to find this recipe by name.</h1>
-
+                <article>
+                    <h3>Like what you see??</h3>
+                    <h1>Use our 'Search' button above to find this recipe by name.</h1>
+                </article>
             </div>
         </section>
     )

@@ -30,6 +30,14 @@ export default function SearchForm({ searchTerm, setSearchTerm, setResults, cate
     loadDropDownItems();
   }, [category]);
 
+  if (!dropDownItems) {
+    return (
+        <div>
+            <img className="hourglass" src={`${process.env.PUBLIC_URL}/hourglass.png`} alt="hourglass" />
+        </div>
+    )
+}
+
   function handleChange(event) {
     setSearchTerm(event.target.value);
   }

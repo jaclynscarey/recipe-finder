@@ -1,3 +1,7 @@
+:root {
+  --main-txt-red: rgba(255, 0, 0, 0.649);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,7 +9,7 @@
 }
 
 body {
-  background-color: rgba(0, 0, 255, 0.736);
+  background-color: rgba(223, 148, 19, 0.615);
 }
 
 section {
@@ -15,6 +19,7 @@ section {
   width: 70vw;
   box-shadow: 3px 4px 10px 0 rgba(0, 0, 0, 0.852);
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-around;
 }
@@ -31,10 +36,11 @@ div.right-div {
   display: flex;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.461);
-  height: 40vh;
-  width: 30vw;
-  margin-right: 5vw;
+  height: 70vh;
+  width: 40vw;
   flex-direction: column;
+  margin-right: 1vw;
+  justify-content: center;
 }
 
 div.left-div {
@@ -44,24 +50,28 @@ div.left-div {
   justify-content: flex-start;
   height: 70vh;
   width: 40vw;
+  margin-left: 1vw;
 }
 
 h2 {
-  font-family: 'Luckiest Guy', cursive;
+  font-family: 'Luckiest Guy';
   font-size: 4.5vh;
   font-weight: lighter;
   padding: 3vh 0 0 3vw;
 }
 
 h3 {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Luckiest Guy';
   font-size: 3.5vh;
-  font-weight: lighter;
+  letter-spacing: .3vw;
   padding: 2.5vh 2.25vw;
-  color: rgb(232, 214, 110);
-  text-shadow: 2px 2px 2px black;
-  font-weight: bold;
+  color: var(--main-txt-red);
+  text-shadow: 2px 2px 2px black;  font-weight: bold;
   text-align: center;
+}
+
+h3:hover {
+  font-size: 4vh;
 }
 
 img.random-img {
@@ -84,23 +94,30 @@ div.categories-container, div.dish-container {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+div.hourglass-div {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.hourglass {
+  height: 15vmin;
   pointer-events: none;
+  margin: 25vh auto;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  .hourglass {
+    animation: hourglass-spin infinite 5s linear;
   }
 }
 
-@keyframes App-logo-spin {
+@keyframes hourglass-spin {
   from {
-    transform: rotate(0deg);
+    transform: rotate3d(0);
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate3d(1, 0, 0, 360deg);
   }
 }
 
