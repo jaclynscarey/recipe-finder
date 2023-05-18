@@ -1,7 +1,10 @@
 import Category from "../../components/Category/Category";
 
-export default function CategoriesPage({ setCategory }) {
+export default function CategoriesPage({ setCategory, setSearchTerm }) {
     const categories = ['Nationality', 'Ingredient', 'Name'];
+
+    setSearchTerm(undefined);
+    setCategory(undefined);
 
     return (
         <section>
