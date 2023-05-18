@@ -1,21 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
 
 ul.navbar {
-    margin: 0 auto;
+    margin: 20px auto;
     list-style: none;
     display: flex;
     justify-content: flex-end;
     background-image: linear-gradient(to left, rgba(255, 255, 255, 0.772), rgba(0, 0, 0, 0.706));
-    height: 75px;
-    width: 95vw;
+    height: 8vh;
+    width: 70vw;
     align-items: center;
-    box-shadow: 3px 4px 10px 0 rgba(255, 0, 0, 0.435);
-    border-radius: 20px;
+    box-shadow: 3px 4px 10px 0 rgba(0, 0, 0, 0.852);
+    /* border-radius: 20px; */
 }
   
 .navbar li {
     margin-right: 70px;
-    font-size: 2.5rem;
+    font-size: 4vh;
     font-family: 'Luckiest Guy', cursive;
     display: flex;
     flex-direction: row;
@@ -25,6 +25,11 @@ ul.navbar {
 .navbar a {
     text-decoration: none;
     color: black;
+}
+
+a:hover {
+    color: rgba(255, 0, 0, 0.649);
+    text-shadow: 2px 2px 2px black;
 }
 
 li.navbar span {
