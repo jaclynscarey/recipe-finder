@@ -11,17 +11,17 @@ import ResultsPage from '../pages/ResultsPage/ResultsPage';
 import RecipePage from '../pages/RecipePage/RecipePage';
 
 export default function App() {
-  const [searchTerm, setSearchTerm] = useState(null);
-  const [results, setResults] = useState(null);
-  const [mealResult, setMealResult] = useState([]);
-  const [category, setCategory] = useState(null);
+  const [searchTerm, setSearchTerm] = useState(undefined);
+  const [results, setResults] = useState(undefined);
+  const [mealResult, setMealResult] = useState(undefined);
+  const [category, setCategory] = useState(undefined);
 
   return (
     <main>
       <NavBar />
       <Routes>
         <Route exact path='/' element={<IntroPage />} />
-        <Route path='/search' element={<CategoriesPage setCategory={setCategory}/>} />
+        <Route path='/search' element={<CategoriesPage setCategory={setCategory} setSearchTerm={setSearchTerm} />} />
         <Route path='/search/:category' element={<SearchPage searchTerm={searchTerm} setSearchTerm={setSearchTerm} setResults={setResults} category={category} />} />
         <Route path='/search/results/:searchTerm' element={<ResultsPage searchTerm={searchTerm} results={results} setMealResult={setMealResult} />} />
         <Route path='/search/recipe/:id' element={<RecipePage mealResult={mealResult} />} />          
