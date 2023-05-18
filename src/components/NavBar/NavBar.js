@@ -4,8 +4,18 @@ import './NavBar.css';
 export default function NavBar() {
     return (
         <ul className="navbar">
-            <Link to="/"><li><img src={`${process.env.PUBLIC_URL}/home.png`} />Home</li></Link>
-            <Link to="/search"><li>Search</li></Link>
+            <Link to="/">
+                <li className='navbar'>
+                    <img src={`${process.env.PUBLIC_URL}/home.png`} alt="Home" />
+                    <span>Home</span>
+                </li>
+            </Link>
+            <Link to="/search">
+                <li className='navbar'>
+                    <img src={`${process.env.PUBLIC_URL}/search.png`} alt="Search" />
+                    <span>Search</span>
+                </li>
+            </Link>
         </ul>
     )
 }
