@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# Recipe Finder App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+The Recipe Finder App is a web application that allows users to search for recipes based on various categories such as nationality, ingredients, and dish name. It provides a simple and intuitive interface for users to discover new recipes and find inspiration for their cooking adventures.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Key Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* Search by Category: Users can choose from different categories such as Nationality, Ingredient, and Recipe Name to refine their recipe search.
+* Dynamic Dropdowns: The app dynamically generates dropdown menus based on the selected category, providing users with relevant options to choose from.
+* Random Recipe: The home page of the app presents users with a randomly selected dish or meal each time they visit, adding an element of surprise and exploration.
+* Detailed Recipe View: Clicking on a recipe from the search results opens a detailed recipe view, showcasing the recipe name, ingredients, instructions, and even a video demonstration if available.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies Used
 
-### `npm run build`
+The Recipe Search App is built using the following technologies:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* React: A JavaScript library for building user interfaces
+* React Router: A library for managing routing and navigation in a React application
+* React Hooks: Used to manage state and side effects in functional components
+* Fetch API: Used to retrieve data from the external recipe API
+* CSS: Styling the app for an appealing and intuitive user interface
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Trello
+[Trello Board used for planning](https://trello.com/b/WRdU0BgY/recipe-finder)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Wireframe
+[Wireframe on InvisionApp](https://jaclyncarey408912.invisionapp.com/freehand/Recipe-Finder-9yt2mMkp?dsid_h=d82b6d4b57232ef1cc95a482004d55b423cb027887f1e3b6a4434166699940c9&uid_h=2a43e32efedaef62e967be987ad6788bef9c5eae9eee07812571aafb89f1ebfb)
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Getting Started/Installation Instructions
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To run the Recipe Finder App locally on your machine, follow these steps:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Clone the repository: git clone `https://github.com/jaclynscarey/recipe-finder.git`
+Install the dependencies: `npm install`
+Start the development server: `npm start`
+Open the app in your browser: http://localhost:3000
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Icebox Items
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The following features are planned for future implementation:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* Pagination: Implement pagination for search results to display recipes in manageable chunks, allowing users to navigate through multiple pages of results.
+* User Login: Add user authentication functionality to allow users to create accounts and log in.
+* Save Recipes: Enable logged-in users to save recipes to their account for easy access and organization.
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Contribution Guidelines
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Contributions are welcome! If you find any bugs or have suggestions for new features, feel free to open an issue or submit a pull request. Please follow the existing code style and conventions.
