@@ -1,5 +1,20 @@
 # Recipe Finder App
 
+<details>
+<summary><strong>Table of Contents</strong></summary>
+
+- [Description](#description)
+- [Screenshots](#screenshots)
+- [Key Features](#key-features)
+- [Technologies Used](#technologies-used)
+- [Deployed App](#deployed-app)
+- [Getting Started/Installation Instructions](#getting-startedinstallation-instructions)
+- [Icebox Items](#icebox-items)
+- [Contribution Guidelines](#contribution-guidelines)
+
+</details>
+
+
 ## Description
 
 The Recipe Finder App is a web application that allows users to search for recipes based on various categories such as nationality, ingredients, and dish name. It provides a simple and intuitive interface for users to discover new recipes and find inspiration for their cooking adventures.
