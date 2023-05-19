@@ -9,6 +9,7 @@ import CategoriesPage from '../pages/CategoriesPage/CategoriesPage';
 import SearchPage from '../pages/SearchPage/SearchPage';
 import ResultsPage from '../pages/ResultsPage/ResultsPage';
 import RecipePage from '../pages/RecipePage/RecipePage';
+import Footer from '../components/Footer/Footer';
 
 export default function App() {
   const [searchTerm, setSearchTerm] = useState(undefined);
@@ -26,6 +27,7 @@ export default function App() {
         <Route path='/search/results/:searchTerm' element={<ResultsPage searchTerm={searchTerm} results={results} setMealResult={setMealResult} />} />
         <Route path='/search/recipe/:id' element={<RecipePage mealResult={mealResult} />} />          
       </Routes>
+      <Footer />
     </main>
   )
 }
