@@ -12,8 +12,11 @@ export default function RecipePage({ mealResult }) {
 
     return (
         <section className="recipe-section">
-            <h1 className="recipe-h1">{mealResult.strMeal}</h1>
-            <img className="recipe-img" src={mealResult.strMealThumb} alt={mealResult.strMeal} />            
+            <div className="recipe-div">
+                <h1 className="recipe-h1">{mealResult.strMeal}</h1>
+                <span className="recipe-span">Nationality: {mealResult.strArea} | Category: {mealResult.strCategory}</span>            
+            </div>
+            <img className="recipe-img" src={mealResult.strMealThumb} alt={mealResult.strMeal} />
             <table>
                 <thead>
                     <tr>
