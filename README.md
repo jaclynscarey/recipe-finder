@@ -35,10 +35,10 @@ The Recipe Search App is built using the following technologies:
 
 To run the Recipe Finder App locally on your machine, follow these steps:
 
-Clone the repository: git clone `https://github.com/jaclynscarey/recipe-finder.git`
-Install the dependencies: `npm install`
-Start the development server: `npm start`
-Open the app in your browser: http://localhost:3000
+* Clone the repository: git clone `https://github.com/jaclynscarey/recipe-finder.git`
+* Install the dependencies: `npm install`
+* Start the development server: `npm start`
+* Open the app in your browser: http://localhost:3000
 
 
 ## Icebox Items
