@@ -11,7 +11,7 @@ export default function IntroPage() {
                 const randomMeal = result['meals'][0];
                 setRandomDish(randomMeal);
             } catch (error) {
-                console.error("Error loading random recipe")
+                console.error("Error loading random recipe: ", error)
             }
         }
 
@@ -30,16 +30,18 @@ export default function IntroPage() {
     return(
         <section>
             <div className="left-div">
-                <h1>Randomly Selected Dish for YOU!</h1>
-                <h2>{randomDish['strMeal']}</h2>
-                <img className="random-img" src={randomDish['strMealThumb']} alt={randomDish['strMeal']} />
+                <article className="random-article">
+                    <h1 className="random-h1">Randomly Selected Dish for YOU!</h1>
+                    <h2 className="random-h2">{randomDish['strMeal']}</h2>
+                    <img className="random-img" src={randomDish['strMealThumb']} alt={randomDish['strMeal']} />
+                </article>
             </div>
             <div className="right-div">
-                <article>
+                <article className="right-article">
                     <h3>Like what you see??</h3>
                     <h1>Use our 'Search' button above to find this recipe by name.</h1>
                 </article>
             </div>
-        </section>
+        </section>         
     )
 }

@@ -23,7 +23,7 @@ export default function SearchForm({ searchTerm, setSearchTerm, setResults, cate
         const sortedItems = resultsList.map((obj, i) => obj[endpoint[category][2]]).sort();
         setDropDownItems(["", ...sortedItems]);
       } catch (error) {
-        console.error('Error loading dropdown items:', error);
+        console.error('Error loading dropdown items: ', error);
       }
     }
     
@@ -64,7 +64,7 @@ export default function SearchForm({ searchTerm, setSearchTerm, setResults, cate
 
       navigate(`/search/results/${searchValue}`);
     } catch (error) {
-      console.error('Error submitting form:', error);
+      console.error('Error submitting form: ', error);
     }
   }
 
