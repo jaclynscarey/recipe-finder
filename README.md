@@ -16,11 +16,11 @@ The Recipe Finder App is a web application that allows users to search for recip
 <a href="https://github.com/jaclynscarey/recipe-finder/assets/109121563/c4017770-76cc-4066-b877-c11a0e3e87a3" target="_blank">
   <img src="https://github.com/jaclynscarey/recipe-finder/assets/109121563/c4017770-76cc-4066-b877-c11a0e3e87a3" alt="Screenshot 3" width="400">
 </a>
-<a href="https://github.com/jaclynscarey/recipe-finder/assets/109121563/7a2f58ae-9e60-4122-8273-f94d0a915068" target="_blank">
-  <img src="https://github.com/jaclynscarey/recipe-finder/assets/109121563/7a2f58ae-9e60-4122-8273-f94d0a915068" alt="Screenshot 4" width="400">
-</a>
 <a href="https://github.com/jaclynscarey/recipe-finder/assets/109121563/0116c16d-4520-47cd-b474-730a72a89f61" target="_blank">
   <img src="https://github.com/jaclynscarey/recipe-finder/assets/109121563/0116c16d-4520-47cd-b474-730a72a89f61" alt="Screenshot 5" width="400">
+</a>
+<a href="https://github.com/jaclynscarey/recipe-finder/assets/109121563/7a2f58ae-9e60-4122-8273-f94d0a915068" target="_blank">
+  <img src="https://github.com/jaclynscarey/recipe-finder/assets/109121563/7a2f58ae-9e60-4122-8273-f94d0a915068" alt="Screenshot 4" width="400">
 </a>
 <a href="https://github.com/jaclynscarey/recipe-finder/assets/109121563/a9cdd30b-8f86-4968-a118-e97a7b2d8842" target="_blank">
   <img src="https://github.com/jaclynscarey/recipe-finder/assets/109121563/a9cdd30b-8f86-4968-a118-e97a7b2d8842" alt="Screenshot 6" width="400">
