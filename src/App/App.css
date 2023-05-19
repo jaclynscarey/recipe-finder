@@ -18,7 +18,7 @@ body {
 section {
   margin: 3vmin auto;
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.772), rgba(0, 0, 0, 0.706));
-  height: 80vmin;
+  min-height: 80vmin;
   width: 100vmin;
   box-shadow: 3px 4px 10px 0 rgba(0, 0, 0, 0.852);
   display: flex;
@@ -31,6 +31,13 @@ section {
   justify-content: center;
 }
 
+.results-section {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  padding: 5vmin 0;
+}
+
 div.right-div, div.left-div{
   height: 80vmin;
   width: 50vmin;
@@ -39,7 +46,7 @@ div.right-div, div.left-div{
   justify-content: center;
 }
 
-.categories-div {
+.categories-div, .results-div {
   display: flex;
   flex-wrap: wrap; 
   margin: 0 auto;
@@ -59,6 +66,11 @@ article.right-article {
   padding: 1vmin;
   background-color: rgba(255, 255, 255, 0.197);
   margin: 0 2vmin;
+}
+
+.results-h1 {
+  font-family: 'Luckiest Guy';
+  font-size: 4vmin;
 }
 
 h1 {

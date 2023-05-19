@@ -1,5 +1,4 @@
 div.category-div {
-    /* border: 1px solid black; */
     width: 30vmin;
     height: 45vmin;
     margin: 0 1vmin;
@@ -12,6 +11,7 @@ div.category-div {
 .category-img {
     width: 27vmin;
     box-shadow: 10px 10px 10px 0 rgba(0, 0, 0, 0.646);
+    margin: 0 auto;
 }
 
 .category-h4 {
