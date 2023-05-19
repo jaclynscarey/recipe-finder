@@ -58,6 +58,8 @@ section {
   background-color: rgba(255, 255, 255, 0.197);
   padding: 4vmin;
   box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
 }
 
 .video-div {
@@ -168,6 +170,7 @@ table {
   padding: 4vmin;
   box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.5);
 }
+
 
 .measure {
   text-align: right;

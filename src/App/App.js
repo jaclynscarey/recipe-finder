@@ -21,7 +21,7 @@ export default function App() {
     <main>
       <NavBar />
       <Routes>
-        <Route exact path='/' element={<IntroPage />} />
+        <Route exact path='/' element={<IntroPage setMealResult={setMealResult}/>} />
         <Route path='/search' element={<CategoriesPage setCategory={setCategory} setSearchTerm={setSearchTerm} />} />
         <Route path='/search/:category' element={<SearchPage searchTerm={searchTerm} setSearchTerm={setSearchTerm} setResults={setResults} category={category} />} />
         <Route path='/search/results/:searchTerm' element={<ResultsPage searchTerm={searchTerm} results={results} setMealResult={setMealResult} />} />
