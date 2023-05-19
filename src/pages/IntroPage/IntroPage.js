@@ -31,15 +31,15 @@ export default function IntroPage() {
         <section>
             <div className="left-div">
                 <article className="random-article">
-                    <h1 className="random-h1">Randomly Selected Dish for YOU!</h1>
+                    <h1 className="random-h1">Get Ready for a Flavorful Roulette!</h1>
                     <h2 className="random-h2">{randomDish['strMeal']}</h2>
                     <img className="random-img" src={randomDish['strMealThumb']} alt={randomDish['strMeal']} />
                 </article>
             </div>
             <div className="right-div">
                 <article className="right-article">
-                    <h3>Like what you see??</h3>
-                    <h1>Use our 'Search' button above to find this recipe by name.</h1>
+                    <h3 className="flash">Like what you see??</h3>
+                    <h1 className="right-h1">Find the recipe for "{randomDish['strMeal']}" by using our Search by Name feature.</h1>
                 </article>
             </div>
         </section>         

@@ -11,10 +11,10 @@ export default function Category({ setCategory, category, categories }) {
     }
 
     return (
-        <Link to={`/search/${category}`} >
+        <Link className='category-link' to={`/search/${category}`} >
             <div onClick={handleClick} className={`category-div ${category}`}>
             <img src={`${process.env.PUBLIC_URL}/${category}.jpg`} alt={category} className={`${category} category-img`} />
-            <h4 className={`${category} category-h4`}>Search by {category}</h4>
+            <h4 className={`${category} category-h4`}>Search by<br /> {category}</h4>
             </div>
         </Link>
     )

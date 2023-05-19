@@ -1,8 +1,8 @@
 div.category-div {
-    border: 1px solid black;
-    width: 19vw;
-    height: 19vw;
-    margin: 25px;
+    /* border: 1px solid black; */
+    width: 30vmin;
+    height: 45vmin;
+    margin: 0 1vmin;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,11 +10,28 @@ div.category-div {
 }
 
 .category-img {
-    width: 175px;
+    width: 27vmin;
+    box-shadow: 10px 10px 10px 0 rgba(0, 0, 0, 0.646);
 }
 
 .category-h4 {
-    width: 100px;
+    font-family: 'Luckiest Guy';
+    color: rgba(255, 217, 0, 0.9);
+    text-shadow: 2.5px 2.5px 2.5px rgba(0, 0, 0, 0.87);
+    letter-spacing: .25vmin;
+    font-weight: 100;
+    font-size: 3vmin;
     text-align: center;
     word-wrap: normal;
+    margin-top: 5vmin;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 2vmin;    
+}
+
+.category-link {
+    text-decoration: none;
+}
+
+.category-h4:hover {
+    font-size: 3.5vmin;
 }
