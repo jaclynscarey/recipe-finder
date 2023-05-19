@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './SearchForm.css';
 
 export default function SearchForm({ searchTerm, setSearchTerm, setResults, category }) {
   const [dropDownItems, setDropDownItems] = useState([]);
@@ -69,8 +70,8 @@ export default function SearchForm({ searchTerm, setSearchTerm, setResults, cate
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label><h1>Find Recipes by {category}</h1></label>
+    <form className='form' onSubmit={handleSubmit}>
+      <label><h1 className='form-h1'>Find Recipes by {category}</h1></label>
       {category === 'Nationality' ? (
         <select>
           {dropDownItems.map((option, index) => (
@@ -80,8 +81,9 @@ export default function SearchForm({ searchTerm, setSearchTerm, setResults, cate
           ))}
         </select>
       ) : category === 'Ingredient' ? (
-        <div>
-          <input type="text" onChange={handleChange} placeholder={`Search by ${category}`} />
+        <div className='ingredient-div'>
+          <input type="text" onChange={handleChange} placeholder={`Search by Dish ${category}`} />
+          <span className='ingredient-span'>Type your ingredient above<br />OR<br />Select from the dropdown menu below</span>
           <select>
             {dropDownItems.map((option, index) => (
               <option key={index} value={option}>
@@ -91,7 +93,7 @@ export default function SearchForm({ searchTerm, setSearchTerm, setResults, cate
           </select>
         </div>
       ) : (
-        <input type="text" onChange={handleChange} placeholder={`Search by ${category}`} required />
+        <input type="text" onChange={handleChange} placeholder={`Search by Dish ${category}`} required />
       )}
       <button type="submit">Search</button>
     </form>

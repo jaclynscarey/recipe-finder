@@ -25,6 +25,12 @@ section {
   flex-direction: row;
 }
 
+.search-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 div.right-div, div.left-div{
   height: 80vmin;
   width: 50vmin;
