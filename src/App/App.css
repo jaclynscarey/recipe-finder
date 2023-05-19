@@ -10,77 +10,82 @@
 
 body {
   background-color: rgba(223, 148, 19, 0.615);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 section {
-  margin: 3vh auto;
+  margin: 3vmin auto;
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.772), rgba(0, 0, 0, 0.706));
-  height: 80vh;
-  width: 70vw;
+  height: 80vmin;
+  width: 100vmin;
   box-shadow: 3px 4px 10px 0 rgba(0, 0, 0, 0.852);
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
+  place-content: center start;
+}
+
+.categories-div {
+  display: flex;
+  flex-wrap: wrap; 
+  margin: 0 auto;
+  justify-content: center;
+}
+
+div.right-div, div.left-div{
+  height: 20vmin;
+  width: 50vmin;
+}
+
+article.random-article {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 1vmin;
 }
 
 h1 {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 3vh;
+  font-size: 3vmin;
   font-weight: lighter;
-  padding: 2vh 3vw;
   text-align: center;
 }
 
-div.right-div {
-  display: flex;
-  align-items: center;
-  background-color: rgba(255, 255, 255, 0.461);
-  height: 70vh;
-  width: 40vw;
-  flex-direction: column;
-  margin-right: 1vw;
-  justify-content: center;
-}
-
-div.left-div {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  height: 70vh;
-  width: 40vw;
-  margin-left: 1vw;
+h1.random-h1 {
+  margin-top: 4vmin;
 }
 
 h2 {
   font-family: 'Luckiest Guy';
-  font-size: 4.5vh;
-  font-weight: lighter;
-  padding: 3vh 0 0 3vw;
+  font-size: 4.5vmin;
+  font-weight: 100;
+  text-align: center;
+}
+
+h2.random-h2 {
+  margin: 3vmin 0 3vmin 0;
 }
 
 h3 {
   font-family: 'Luckiest Guy';
-  font-size: 3.5vh;
-  letter-spacing: .3vw;
-  padding: 2.5vh 2.25vw;
-  color: var(--main-txt-red);
-  text-shadow: 2px 2px 2px black;  font-weight: bold;
+  font-weight: 100;
+  font-size: 3.5vmin;
   text-align: center;
+  animation: flash infinite 3s linear;
 }
 
-h3:hover {
-  font-size: 4vh;
+@keyframes flash {
+  0% {font-size: 3.5vmin;}
+  25% {font-size: 4vmin;}
+  50% {font-size: 4.5vmin;}
+  100% {font-size: 3.5vmin;}
 }
 
 img.random-img {
-  height: 40vh;
-  /* border-radius: 10px; */
-  margin: 0 3vw;
+  width: 40vmin;
+  margin: 0 auto;
 }
-
-
 
 div.categories-container, div.dish-container {
   display: flex;

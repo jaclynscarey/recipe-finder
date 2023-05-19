@@ -2,21 +2,20 @@
 
 
 ul.navbar {
-    margin: 5vh auto;
+    margin: 3vmin auto;
     list-style: none;
     display: flex;
     justify-content: flex-end;
     background-image: linear-gradient(to left, rgba(255, 255, 255, 0.772), rgba(0, 0, 0, 0.706));
-    height: 8vh;
-    width: 70vw;
+    height: 8vmin;
+    width: 100vmin;
     align-items: center;
     box-shadow: 3px 4px 10px 0 rgba(0, 0, 0, 0.852);
-    /* border-radius: 20px; */
 }
   
 .navbar li {
-    margin-right: 7vh;
-    font-size: 4vh;
+    margin-right: 7vmin;
+    font-size: 4vmax;
     font-family: 'Luckiest Guy', cursive;
     display: flex;
     flex-direction: row;
@@ -34,10 +33,10 @@ a:hover {
 }
 
 li.navbar span {
-    margin-bottom: -2vh;
+    margin-bottom: -2vmin;
 }
 
 .navbar > img {
-    height: 5vh;
+    height: 5vmin;
 }
 
