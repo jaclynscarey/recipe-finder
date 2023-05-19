@@ -1,4 +1,11 @@
 # Recipe Finder App
+![Screenshot 2023-05-19 at 3 14 43 AM](https://github.com/jaclynscarey/recipe-finder/assets/109121563/fe027561-27de-4df8-be52-3bd5ae5dc543)
+![Screenshot 2023-05-19 at 3 14 59 AM](https://github.com/jaclynscarey/recipe-finder/assets/109121563/408691bc-3c66-466a-ab01-60c839b682b6)
+![Screenshot 2023-05-19 at 3 15 44 AM](https://github.com/jaclynscarey/recipe-finder/assets/109121563/c4017770-76cc-4066-b877-c11a0e3e87a3)
+![Screenshot 2023-05-19 at 3 16 09 AM](https://github.com/jaclynscarey/recipe-finder/assets/109121563/7a2f58ae-9e60-4122-8273-f94d0a915068)
+![Screenshot 2023-05-19 at 3 17 07 AM](https://github.com/jaclynscarey/recipe-finder/assets/109121563/0116c16d-4520-47cd-b474-730a72a89f61)
+![Screenshot 2023-05-19 at 3 17 19 AM](https://github.com/jaclynscarey/recipe-finder/assets/109121563/a9cdd30b-8f86-4968-a118-e97a7b2d8842)
+
 
 
 ## Description
