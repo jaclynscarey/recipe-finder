@@ -52,7 +52,13 @@ The Recipe Search App is built using the following technologies:
 <a href="https://jaclyncarey408912.invisionapp.com/freehand/Recipe-Finder-9yt2mMkp?dsid_h=d82b6d4b57232ef1cc95a482004d55b423cb027887f1e3b6a4434166699940c9&uid_h=2a43e32efedaef62e967be987ad6788bef9c5eae9eee07812571aafb89f1ebfb" target="_blank">Wireframe on InvisionApp</a>
 
 
+## Deployed App
+
+The Recipe Finder App is deployed and can be accessed at: [https://recipe-finder.jaclyncarey.com/](https://recipe-finder.jaclyncarey.com/)
+
 ## Getting Started/Installation Instructions
+
+You can access the app 
 
 To run the Recipe Finder App locally on your machine, follow these steps:
 
