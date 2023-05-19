@@ -22,7 +22,7 @@ export default function RecipePage({ mealResult }) {
                 </thead>
                 <tbody>
                     {ingredients.map((ingredient, index) => (
-                        <tr>
+                        <tr key={index}>
                             <td className="measure">{measures[index]}</td>
                             <td className="ingredient">{ingredient}</td>
                         </tr>
