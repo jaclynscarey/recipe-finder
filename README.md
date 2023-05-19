@@ -1,16 +1,30 @@
 # Recipe Finder App
-![Screenshot 2023-05-19 at 3 14 43 AM](https://github.com/jaclynscarey/recipe-finder/assets/109121563/fe027561-27de-4df8-be52-3bd5ae5dc543)
-![Screenshot 2023-05-19 at 3 14 59 AM](https://github.com/jaclynscarey/recipe-finder/assets/109121563/408691bc-3c66-466a-ab01-60c839b682b6)
-![Screenshot 2023-05-19 at 3 15 44 AM](https://github.com/jaclynscarey/recipe-finder/assets/109121563/c4017770-76cc-4066-b877-c11a0e3e87a3)
-![Screenshot 2023-05-19 at 3 16 09 AM](https://github.com/jaclynscarey/recipe-finder/assets/109121563/7a2f58ae-9e60-4122-8273-f94d0a915068)
-![Screenshot 2023-05-19 at 3 17 07 AM](https://github.com/jaclynscarey/recipe-finder/assets/109121563/0116c16d-4520-47cd-b474-730a72a89f61)
-![Screenshot 2023-05-19 at 3 17 19 AM](https://github.com/jaclynscarey/recipe-finder/assets/109121563/a9cdd30b-8f86-4968-a118-e97a7b2d8842)
-
-
 
 ## Description
 
 The Recipe Finder App is a web application that allows users to search for recipes based on various categories such as nationality, ingredients, and dish name. It provides a simple and intuitive interface for users to discover new recipes and find inspiration for their cooking adventures.
+
+
+## Screenshots
+
+<a href="https://github.com/jaclynscarey/recipe-finder/assets/109121563/fe027561-27de-4df8-be52-3bd5ae5dc543" target="_blank">
+  <img src="https://github.com/jaclynscarey/recipe-finder/assets/109121563/fe027561-27de-4df8-be52-3bd5ae5dc543" alt="Screenshot 1" width="400">
+</a>
+<a href="https://github.com/jaclynscarey/recipe-finder/assets/109121563/408691bc-3c66-466a-ab01-60c839b682b6" target="_blank">
+  <img src="https://github.com/jaclynscarey/recipe-finder/assets/109121563/408691bc-3c66-466a-ab01-60c839b682b6" alt="Screenshot 2" width="400">
+</a>
+<a href="https://github.com/jaclynscarey/recipe-finder/assets/109121563/c4017770-76cc-4066-b877-c11a0e3e87a3" target="_blank">
+  <img src="https://github.com/jaclynscarey/recipe-finder/assets/109121563/c4017770-76cc-4066-b877-c11a0e3e87a3" alt="Screenshot 3" width="400">
+</a>
+<a href="https://github.com/jaclynscarey/recipe-finder/assets/109121563/7a2f58ae-9e60-4122-8273-f94d0a915068" target="_blank">
+  <img src="https://github.com/jaclynscarey/recipe-finder/assets/109121563/7a2f58ae-9e60-4122-8273-f94d0a915068" alt="Screenshot 4" width="400">
+</a>
+<a href="https://github.com/jaclynscarey/recipe-finder/assets/109121563/0116c16d-4520-47cd-b474-730a72a89f61" target="_blank">
+  <img src="https://github.com/jaclynscarey/recipe-finder/assets/109121563/0116c16d-4520-47cd-b474-730a72a89f61" alt="Screenshot 5" width="400">
+</a>
+<a href="https://github.com/jaclynscarey/recipe-finder/assets/109121563/a9cdd30b-8f86-4968-a118-e97a7b2d8842" target="_blank">
+  <img src="https://github.com/jaclynscarey/recipe-finder/assets/109121563/a9cdd30b-8f86-4968-a118-e97a7b2d8842" alt="Screenshot 6" width="400">
+</a>
 
 
 ## Key Features
