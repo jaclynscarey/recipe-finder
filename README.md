@@ -46,10 +46,10 @@ The Recipe Search App is built using the following technologies:
 * CSS: Styling the app for an appealing and intuitive user interface
 
 ### Trello
-[Trello Board used for planning](https://trello.com/b/WRdU0BgY/recipe-finder)
+[Trello Board used for planning](https://trello.com/b/WRdU0BgY/recipe-finder){:target="_blank"}
 
 ### Wireframe
-[Wireframe on InvisionApp](https://jaclyncarey408912.invisionapp.com/freehand/Recipe-Finder-9yt2mMkp?dsid_h=d82b6d4b57232ef1cc95a482004d55b423cb027887f1e3b6a4434166699940c9&uid_h=2a43e32efedaef62e967be987ad6788bef9c5eae9eee07812571aafb89f1ebfb)
+[Wireframe on InvisionApp](https://jaclyncarey408912.invisionapp.com/freehand/Recipe-Finder-9yt2mMkp?dsid_h=d82b6d4b57232ef1cc95a482004d55b423cb027887f1e3b6a4434166699940c9&uid_h=2a43e32efedaef62e967be987ad6788bef9c5eae9eee07812571aafb89f1ebfb){:target="_blank"}
 
 
 ## Getting Started/Installation Instructions
