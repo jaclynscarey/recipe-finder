@@ -12,6 +12,14 @@ img.dish-thumb {
     margin: 0 auto;
 }
 
+img.dish-thumb:hover {
+    transform: scale(1.75);
+    border-radius: 50%;
+    border: 1px solid black;
+    padding: 5px;
+    box-shadow: 0 3px 3px 3px rgba(0, 0, 0, 0.627);
+}
+
 h4.dish-name {
     font-family: 'Luckiest Guy';
     color: rgba(255, 217, 0, 0.9);

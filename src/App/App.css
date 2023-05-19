@@ -119,8 +119,12 @@ h3.flash {
 }
 
 img.random-img {
-  width: 40vmin;
+  width: 45vmin;
   margin: 0 auto;
+  border-radius: 50%;
+  border: 3px solid black;
+  padding: 15px;
+  box-shadow: 0 3px 3px 3px rgba(0, 0, 0, 0.627);
 }
 
 .categories-div, .dish-div {
