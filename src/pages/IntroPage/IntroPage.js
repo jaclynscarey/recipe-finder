@@ -16,7 +16,7 @@ export default function IntroPage({ setMealResult }) {
                 setRandomDish(randomMeal);
                 setMealResult(randomMeal);
             } catch (error) {
-                console.error("Error loading random recipe: ", error)
+                console.error("Error loading random recipe.")
             }
         }
 

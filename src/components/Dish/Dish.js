@@ -15,7 +15,7 @@ export default function Dish({ dish, id, setMealResult }) {
             navigate(`/search/recipe/${id}`)
         
         } catch (error) {
-            console.error('Error accessing this recipe: ', error);
+            console.error('Error accessing this recipe.');
         }
     }
 
