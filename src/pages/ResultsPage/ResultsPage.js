@@ -11,7 +11,7 @@ export default function ResultsPage({ results, searchTerm, setMealResult }) {
                         <Dish key={meal.idMeal} dish={meal} id={meal.idMeal} setMealResult={setMealResult}/>
                     )}
                 </div>
-                : "Your search had no results"
+                : <h1>Your search had no results</h1>
             }
         </section>
     )
