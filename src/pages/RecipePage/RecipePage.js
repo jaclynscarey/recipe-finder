@@ -5,6 +5,7 @@ import YouTube from "react-youtube";
 export default function RecipePage({ mealResult }) {
     const videoUrl = mealResult["strYoutube"];
     const videoId = videoUrl.split("=")[1];
+    const user = JSON.parse(localStorage.getItem('user'));
 
     const ingredients = Object.keys(mealResult).filter(key => key.startsWith("strIngredient")).map(key => mealResult[key]);
     
@@ -36,6 +37,15 @@ export default function RecipePage({ mealResult }) {
             <div className="video-div">
                 <YouTube videoId={videoId} />
             </div>
+            {user ? (
+                <div className="reviews-div">
+                    <span>Reviews will go here</span>
+                </div>
+            ) : (
+                <div className="reviews-div">
+                    <span>Please login to view the reviews.</span>
+                </div>
+            )}
 
         </section>
     )
