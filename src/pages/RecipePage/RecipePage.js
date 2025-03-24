@@ -1,10 +1,11 @@
 import React from "react";
 import YouTube from "react-youtube";
-
+import { Link } from "react-router-dom";
 
 export default function RecipePage({ mealResult }) {
     const videoUrl = mealResult["strYoutube"];
     const videoId = videoUrl.split("=")[1];
+    const user = JSON.parse(localStorage.getItem('user'));
 
     const ingredients = Object.keys(mealResult).filter(key => key.startsWith("strIngredient")).map(key => mealResult[key]);
     
@@ -33,10 +34,15 @@ export default function RecipePage({ mealResult }) {
                 </tbody>
             </table>
             <p className="recipe-instructions">{mealResult.strInstructions}</p>                   
-            <div className="video-div">
-                <YouTube videoId={videoId} />
-            </div>
-
+            {user ? (
+                <div className="video-div">
+                    <YouTube videoId={videoId} />
+                </div>
+            ) : (
+                <div className="video-div login-prompt">
+                    <p>Please <Link to="/">login</Link> to view the cooking video.</p>
+                </div>
+            )}
         </section>
     )
 }
