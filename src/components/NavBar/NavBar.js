@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 
 export default function NavBar() {
     const [user, setUser] = useState(null);
+    const [showLogin, setShowLogin] = useState(false);
 
     useEffect(() => {
         const storedUser = localStorage.getItem('user');
@@ -18,6 +19,7 @@ export default function NavBar() {
         const userObject = jwtDecode(credentialResponse.credential);
         localStorage.setItem('user', JSON.stringify(userObject));
         setUser(userObject);
+        setShowLogin(false);
         window.location.href = '/login-confirmation'; // redirect after successful login
     };
 
@@ -33,6 +35,7 @@ export default function NavBar() {
     };
 
     return (
+        <>
         <ul className="navbar">
             <Link to="/">
                 <li className='navbar'>
@@ -62,13 +65,17 @@ export default function NavBar() {
                     </li>
                 </>
             ) : (
-                <li className="navbar">
-                    <GoogleLogin
-                        onSuccess={handleLoginSuccess}
-                        onError={handleLoginError}
-                    />
+                <li className='navbar' onClick={() => setShowLogin(!showLogin)} style={{ cursor: 'pointer' }}>
+                    <span>Login</span>
                 </li>
             )}
         </ul>
-    )
+
+        {showLogin && (
+            <div style={{ position: 'absolute', top: '60px', right: '20px', zIndex: 1000 }}>
+            <GoogleLogin onSuccess={handleLoginSuccess} onError={handleLoginError} />
+            </div>
+        )}
+        </>
+    );
 }
