@@ -7,6 +7,13 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './SearchForm.css';
 
+// API endpoint configuration for different search categories
+const endpoint = {
+    "Nationality": ["filter.php?a=", "list.php?a=list", "strArea"],
+    "Ingredient": ["filter.php?i=", "list.php?i=list", "strIngredient"],
+    "Name": ["search.php?s=", "search.php?s=", "strMeal"],
+};
+
 export default function SearchForm({ searchTerm, setSearchTerm, setResults, category }) {
   // State for dropdown options based on search category
   const [dropDownItems, setDropDownItems] = useState([]);
@@ -14,13 +21,6 @@ export default function SearchForm({ searchTerm, setSearchTerm, setResults, cate
   // API configuration
   const BASE_URL = "https://www.themealdb.com/api/json/v1/1/";
   const navigate = useNavigate();
-  
-  // API endpoint configuration for different search categories
-  const endpoint = {
-    "Nationality": ["filter.php?a=", "list.php?a=list", "strArea"],
-    "Ingredient": ["filter.php?i=", "list.php?i=list", "strIngredient"],
-    "Name": ["search.php?s=", "search.php?s=", "strMeal"],
-  };
   
   // Default to 'Name' category if none specified
   category = category || 'Name';
