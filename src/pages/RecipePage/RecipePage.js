@@ -1,3 +1,7 @@
+/**
+ * RecipePage component that displays detailed information about a specific recipe.
+ * Includes ingredients, instructions, video tutorial, and user reviews.
+ */
 import React, { useState, useEffect } from "react";
 import YouTube from "react-youtube";
 import ReviewSection from "../../components/ReviewSection/ReviewSection";
@@ -5,10 +9,17 @@ import { useParams } from "react-router-dom";
 import { GoogleLogin } from '@react-oauth/google';
 
 export default function RecipePage({ mealResult: initialMealResult, user, onLoginSuccess }) {
+    // Get recipe ID from URL parameters
     const { id } = useParams();
+    
+    // State management for recipe data and loading status
     const [mealResult, setMealResult] = useState(initialMealResult);
     const [loading, setLoading] = useState(!initialMealResult);
 
+    /**
+     * Effect hook to fetch recipe data if not provided as prop
+     * Used when accessing recipe directly via URL or on page refresh
+     */
     useEffect(() => {
         async function fetchRecipe() {
             if (!mealResult && id) {
@@ -29,10 +40,14 @@ export default function RecipePage({ mealResult: initialMealResult, user, onLogi
         fetchRecipe();
     }, [id, mealResult]);
 
+    /**
+     * Handles Google OAuth login errors
+     */
     const handleLoginError = () => {
         console.error('Login Failed');
     };
 
+    // Loading state display
     if (loading) {
         return (
             <div className="hourglass-div">
@@ -41,10 +56,12 @@ export default function RecipePage({ mealResult: initialMealResult, user, onLogi
         );
     }
 
+    // Error state display
     if (!mealResult) {
         return <div>Recipe not found</div>;
     }
 
+    // Extract recipe data
     const videoUrl = mealResult["strYoutube"];
     const videoId = videoUrl.split("=")[1];
     const ingredients = Object.keys(mealResult).filter(key => key.startsWith("strIngredient")).map(key => mealResult[key]);
@@ -52,11 +69,16 @@ export default function RecipePage({ mealResult: initialMealResult, user, onLogi
 
     return (
         <section className="recipe-section">
+            {/* Recipe header with title and metadata */}
             <div className="recipe-div">
                 <h1 className="recipe-h1">{mealResult.strMeal}</h1>
                 <span className="recipe-span">Nationality: {mealResult.strArea} | Category: {mealResult.strCategory}</span>            
             </div>
+
+            {/* Recipe image */}
             <img className="recipe-img" src={mealResult.strMealThumb} alt={mealResult.strMeal} />
+
+            {/* Ingredients table */}
             <table>
                 <thead>
                     <tr>
@@ -72,15 +94,23 @@ export default function RecipePage({ mealResult: initialMealResult, user, onLogi
                     ))}
                 </tbody>
             </table>
+
+            {/* Cooking instructions */}
             <p className="recipe-instructions">{mealResult.strInstructions}</p>                   
+
+            {/* Video tutorial section */}
             <div className="video-div">
                 <YouTube videoId={videoId} />
             </div>
+
+            {/* User reviews section */}
             <div className="review-div">
                 <h2>User Reviews</h2>
                 {user ? (
+                    // Show reviews for logged-in users
                     <ReviewSection recipeId={mealResult.idMeal} />
                 ) : (
+                    // Show login prompt for guests
                     <div className="login-prompt">
                         <p>Please login to view the reviews.</p>
                         <GoogleLogin
