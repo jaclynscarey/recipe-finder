@@ -37,7 +37,7 @@ export default function RecipePage({ mealResult }) {
             <div className="video-div">
                 <YouTube videoId={videoId} />
             </div>
-            <div className="reviews-div">
+            <div className="review-div">
                 <h2>User Reviews</h2>
                 {user ? (
                     mealResult && <ReviewSection recipeId={mealResult.idMeal} />
