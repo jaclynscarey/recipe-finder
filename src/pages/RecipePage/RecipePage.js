@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import YouTube from "react-youtube";
 import ReviewSection from "../../components/ReviewSection/ReviewSection";
 import { useParams } from "react-router-dom";
+import { GoogleLogin } from '@react-oauth/google';
 
-export default function RecipePage({ mealResult: initialMealResult }) {
+export default function RecipePage({ mealResult: initialMealResult, user, onLoginSuccess }) {
     const { id } = useParams();
     const [mealResult, setMealResult] = useState(initialMealResult);
     const [loading, setLoading] = useState(!initialMealResult);
-    const user = JSON.parse(localStorage.getItem('user'));
 
     useEffect(() => {
         async function fetchRecipe() {
@@ -28,6 +28,10 @@ export default function RecipePage({ mealResult: initialMealResult }) {
 
         fetchRecipe();
     }, [id, mealResult]);
+
+    const handleLoginError = () => {
+        console.error('Login Failed');
+    };
 
     if (loading) {
         return (
@@ -77,7 +81,20 @@ export default function RecipePage({ mealResult: initialMealResult }) {
                 {user ? (
                     <ReviewSection recipeId={mealResult.idMeal} />
                 ) : (
-                    <p>Please login to view the reviews.</p>
+                    <div className="login-prompt">
+                        <p>Please login to view the reviews.</p>
+                        <GoogleLogin
+                            onSuccess={onLoginSuccess}
+                            onError={handleLoginError}
+                            useOneTap
+                            render={({ onClick }) => (
+                                <button onClick={onClick} className="google-login-btn">
+                                    <img src={`${process.env.PUBLIC_URL}/google.png`} alt="Google" />
+                                    <span>Login</span>
+                                </button>
+                            )}
+                        />
+                    </div>
                 )}
             </div>       
         </section>

@@ -1,37 +1,13 @@
 import './NavBar.css';
 import { Link } from 'react-router-dom';
-import { GoogleLogin, googleLogout } from '@react-oauth/google';
-import { jwtDecode } from 'jwt-decode';
-import { useState, useEffect } from 'react';
+import { GoogleLogin } from '@react-oauth/google';
+import { useState } from 'react';
 
-export default function NavBar() {
-    const [user, setUser] = useState(null);
+export default function NavBar({ user, onLogout, onLoginSuccess }) {
     const [showLogin, setShowLogin] = useState(false);
-
-    useEffect(() => {
-        const storedUser = localStorage.getItem('user');
-        if (storedUser) {
-            setUser(JSON.parse(storedUser));
-        }
-    }, []);
-
-    const handleLoginSuccess = (credentialResponse) => {
-        const userObject = jwtDecode(credentialResponse.credential);
-        localStorage.setItem('user', JSON.stringify(userObject));
-        setUser(userObject);
-        setShowLogin(false);
-        window.location.href = '/login-confirmation'; // redirect after successful login
-    };
 
     const handleLoginError = () => {
         console.error('Login Failed');
-    };
-
-    const handleLogout = () => {
-        googleLogout();
-        localStorage.removeItem('user');
-        setUser(null);
-        window.location.href = '/';
     };
 
     return (
@@ -53,7 +29,7 @@ export default function NavBar() {
             {user ? (
                 <>
                     <li className="navbar">
-                        <span className='logout-button' onClick={handleLogout}>Logout</span>
+                        <span className='logout-button' onClick={onLogout}>Logout</span>
                     </li>
                     <li className="navbar user-info">
                         <img
@@ -73,7 +49,7 @@ export default function NavBar() {
 
         {showLogin && (
             <div style={{ position: 'absolute', top: '60px', right: '20px', zIndex: 1000 }}>
-            <GoogleLogin onSuccess={handleLoginSuccess} onError={handleLoginError} />
+                <GoogleLogin onSuccess={onLoginSuccess} onError={handleLoginError} />
             </div>
         )}
         </>

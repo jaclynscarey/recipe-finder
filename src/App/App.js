@@ -1,7 +1,9 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { GoogleOAuthProvider } from '@react-oauth/google';
+import { jwtDecode } from 'jwt-decode';
+import { googleLogout } from '@react-oauth/google';
 
 // Components
 import NavBar from '../components/NavBar/NavBar'
@@ -22,17 +24,38 @@ export default function App() {
   const [results, setResults] = useState(undefined);
   const [mealResult, setMealResult] = useState(undefined);
   const [category, setCategory] = useState(undefined);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
+
+  const handleLoginSuccess = (credentialResponse) => {
+    const userObject = jwtDecode(credentialResponse.credential);
+    localStorage.setItem('user', JSON.stringify(userObject));
+    setUser(userObject);
+  };
+
+  const handleLogout = () => {
+    googleLogout();
+    localStorage.removeItem('user');
+    setUser(null);
+    window.location.href = '/';
+  };
 
   return (
     <GoogleOAuthProvider clientId={clientId}>
       <main>
-        <NavBar />
+        <NavBar user={user} onLogout={handleLogout} onLoginSuccess={handleLoginSuccess} />
         <Routes>
           <Route exact path='/' element={<IntroPage setMealResult={setMealResult}/>} />
           <Route path='/search' element={<CategoriesPage setCategory={setCategory} setSearchTerm={setSearchTerm} />} />
           <Route path='/search/:category' element={<SearchPage searchTerm={searchTerm} setSearchTerm={setSearchTerm} setResults={setResults} category={category} />} />
           <Route path='/search/results/:searchTerm' element={<ResultsPage searchTerm={searchTerm} results={results} setMealResult={setMealResult} />} />
-          <Route path='/search/recipe/:id' element={<RecipePage mealResult={mealResult} />} />
+          <Route path='/search/recipe/:id' element={<RecipePage mealResult={mealResult} user={user} onLoginSuccess={handleLoginSuccess} />} />
           <Route path='/login-confirmation' element={<ProtectedRoute><LoginConfirmation /></ProtectedRoute>} />     
         </Routes>
         <Footer />
