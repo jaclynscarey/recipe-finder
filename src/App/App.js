@@ -81,7 +81,7 @@ export default function App() {
           {/* Recipe search and browsing routes */}
           <Route path='/search' element={<CategoriesPage setCategory={setCategory} setSearchTerm={setSearchTerm} />} />
           <Route path='/search/:category' element={<SearchPage searchTerm={searchTerm} setSearchTerm={setSearchTerm} setResults={setResults} category={category} />} />
-          <Route path='/search/results/:searchTerm' element={<ResultsPage searchTerm={searchTerm} results={results} setMealResult={setMealResult} />} />
+          <Route path='/search/results/:category/:searchTerm' element={<ResultsPage searchTerm={searchTerm} results={results} setMealResult={setMealResult} />} />
           
           {/* Individual recipe view */}
           <Route path='/search/recipe/:id' element={<RecipePage mealResult={mealResult} user={user} onLoginSuccess={handleLoginSuccess} />} />

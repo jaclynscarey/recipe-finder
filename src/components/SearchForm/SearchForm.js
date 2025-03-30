@@ -91,8 +91,8 @@ export default function SearchForm({ searchTerm, setSearchTerm, setResults, cate
       const resultsArr = results['meals'];
       setResults(resultsArr);
 
-      // Navigate to results page
-      navigate(`/search/results/${searchValue}`);
+      // Navigate to results page with category and search term
+      navigate(`/search/results/${category}/${searchValue}`);
     } catch (error) {
       console.error('Error submitting form.');
     }
