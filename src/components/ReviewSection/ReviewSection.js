@@ -43,7 +43,7 @@ export default function ReviewSection({ recipeId }) {
                         {sortedReviews.map((review, index) => (
                             <li key={index} className="review">
                                 <p><strong>{review.user}</strong> ({review.date})</p>
-                                <p>Rating: <span className="review-rating">{review.rating} ⭐</span></p>
+                                <p className="review-rating">{'⭐'.repeat(review.rating)}</p>
                                 <p className="review-comment">{review.comment}</p>
                             </li>
                         ))}
