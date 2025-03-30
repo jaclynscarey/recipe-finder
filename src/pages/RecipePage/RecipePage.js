@@ -1,6 +1,6 @@
 import React from "react";
 import YouTube from "react-youtube";
-
+import ReviewSection from "../../components/ReviewSection/ReviewSection";
 
 export default function RecipePage({ mealResult }) {
     const videoUrl = mealResult["strYoutube"];
@@ -37,16 +37,14 @@ export default function RecipePage({ mealResult }) {
             <div className="video-div">
                 <YouTube videoId={videoId} />
             </div>
-            {user ? (
-                <div className="reviews-div">
-                    <span>Reviews will go here</span>
-                </div>
-            ) : (
-                <div className="reviews-div">
-                    <span>Please login to view the reviews.</span>
-                </div>
-            )}
-
+            <div className="reviews-div">
+                <h2>User Reviews</h2>
+                {user ? (
+                    mealResult && <ReviewSection recipeId={mealResult.idMeal} />
+                ) : (
+                    <p>Please login to view the reviews.</p>
+                )}
+            </div>       
         </section>
     )
 }

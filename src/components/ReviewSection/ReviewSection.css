@@ -1,0 +1,31 @@
+.review-div {
+    margin-top: 2rem;
+    padding: 1rem;
+    border-top: 1px solid #ccc;
+}
+
+.review-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.review-item {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+}
+
+.review-meta {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.review-rating {
+    font-weight: bold;
+    margin-top: 0.5rem;
+}
+
+.review-comment {
+    margin-top: 0.5rem;
+}
