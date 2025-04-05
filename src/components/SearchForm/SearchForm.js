@@ -6,6 +6,7 @@ export default function SearchForm({ searchTerm, setSearchTerm, setResults, cate
   const [dropDownItems, setDropDownItems] = useState([]);
   const BASE_URL = "https://www.themealdb.com/api/json/v1/1/";
   const navigate = useNavigate();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const endpoint = {
     "Nationality": ["filter.php?a=", "list.php?a=list", "strArea"],
     "Ingredient": ["filter.php?i=", "list.php?i=list", "strIngredient"],
@@ -29,7 +30,7 @@ export default function SearchForm({ searchTerm, setSearchTerm, setResults, cate
     }
     
     loadDropDownItems();
-  }, [category]);
+  }, [category, endpoint]);
 
   if (!dropDownItems) {
     return (
