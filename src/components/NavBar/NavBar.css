@@ -27,7 +27,8 @@ ul.navbar {
     color: black;
 }
 
-.navbar > a:hover {
+.navbar > a:hover,
+.navbar > .logout-button:hover {
     color: rgba(255, 217, 0, 0.9);
     text-shadow: 2px 2px 2px black;
 }
