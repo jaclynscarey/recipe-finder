@@ -45,7 +45,7 @@ export default function SearchForm({ searchTerm, setSearchTerm, setResults, cate
     }
     
     loadDropDownItems();
-  }, [category]);
+  }, [endpoint, category]);
 
   // Loading state display
   if (!dropDownItems) {
