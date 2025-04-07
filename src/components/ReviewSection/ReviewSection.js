@@ -7,7 +7,9 @@ export default function ReviewSection({ recipeId }) {
     const [editingReviewId, setEditingReviewId] = useState(null);
     const [editedComment, setEditedComment] = useState("");
     const [editedRating, setEditedRating] = useState(5);
-    const REACT_APP = "http://localhost:5001";
+    const API_URL = process.env.NODE_ENV === "development"
+        ? "http://localhost:5001"
+        : process.env.REACT_APP_API_URL;
 
     useEffect(() => {
         async function fetchReviews() {
@@ -17,7 +19,7 @@ export default function ReviewSection({ recipeId }) {
             }
             console.log("Fetching reviews for recipeId:", recipeId);
             try {
-                const res = await fetch(`http://localhost:5001/api/reviews/${recipeId}`);
+                const res = await fetch(`${API_URL}/api/reviews/${recipeId}`);
                 if (!res.ok) {
                     throw new Error(`Failed to fetch: ${res.statusText}`);
                 }
@@ -34,7 +36,7 @@ export default function ReviewSection({ recipeId }) {
         }
 
         fetchReviews();
-    }, [recipeId, REACT_APP]);
+    }, [recipeId, API_URL]);
 
     const handleSubmit = useCallback(async (e) => {
         e.preventDefault();
@@ -58,7 +60,7 @@ export default function ReviewSection({ recipeId }) {
         console.log("Submitting new review:", newReview);
 
         try {
-            const res = await fetch(`http://localhost:5001/api/reviews`, {
+            const res = await fetch(`${API_URL}/api/reviews`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(newReview),
@@ -76,7 +78,7 @@ export default function ReviewSection({ recipeId }) {
             console.error("Error submitting review:", err);
             alert(`Failed to submit review: ${err.message}`);
         }
-    }, [recipeId]);
+    }, [recipeId, API_URL]);
 
     const handleEdit = (review) => {
         setEditingReviewId(review._id);
@@ -86,7 +88,7 @@ export default function ReviewSection({ recipeId }) {
 
     const handleSaveEdit = async (reviewId) => {
         try {
-            const res = await fetch(`http://localhost:5001/api/reviews/${reviewId}`, {
+            const res = await fetch(`${API_URL}/api/reviews/${reviewId}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
@@ -122,7 +124,7 @@ export default function ReviewSection({ recipeId }) {
     const handleDelete = (id) => {
         if (window.confirm("Are you sure you want to delete this review?")) {
             console.log("Deleting review with ID:", id);
-            fetch(`http://localhost:5001/api/reviews/${id}`, {
+            fetch(`${API_URL}/api/reviews/${id}`, {
                 method: "DELETE"
             })
             .then(res => {
