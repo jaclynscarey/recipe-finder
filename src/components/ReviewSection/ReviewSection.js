@@ -1,16 +1,28 @@
+/**
+ * ReviewSection component that manages recipe reviews.
+ * Handles displaying, adding, editing, and deleting reviews for a specific recipe.
+ * Includes sorting functionality and user-specific review management.
+ */
 import React, { useEffect, useState, useCallback } from "react";
 import "./ReviewSection.css";
 
 export default function ReviewSection({ recipeId }) {
+    // State management for reviews and UI controls
     const [reviews, setReviews] = useState([]);
     const [sortOption, setSortOption] = useState('date-desc');
     const [editingReviewId, setEditingReviewId] = useState(null);
     const [editedComment, setEditedComment] = useState("");
     const [editedRating, setEditedRating] = useState(5);
+
+    // API URL configuration based on environment
     const API_URL = process.env.NODE_ENV === "development"
         ? "http://localhost:5001"
         : process.env.REACT_APP_API_URL;
 
+    /**
+     * Effect hook to fetch reviews when recipeId changes
+     * Loads existing reviews for the current recipe
+     */
     useEffect(() => {
         async function fetchReviews() {
             if (!recipeId) {
@@ -38,6 +50,11 @@ export default function ReviewSection({ recipeId }) {
         fetchReviews();
     }, [recipeId, API_URL]);
 
+    /**
+     * Handles submission of new reviews
+     * Validates user authentication and submits review to API
+     * @param {Event} e - Form submission event
+     */
     const handleSubmit = useCallback(async (e) => {
         e.preventDefault();
         const form = e.target;
@@ -80,12 +97,20 @@ export default function ReviewSection({ recipeId }) {
         }
     }, [recipeId, API_URL]);
 
+    /**
+     * Initiates review editing mode
+     * @param {Object} review - The review to be edited
+     */
     const handleEdit = (review) => {
         setEditingReviewId(review._id);
         setEditedComment(review.comment);
         setEditedRating(review.rating);
     };
 
+    /**
+     * Saves edited review to the API
+     * @param {string} reviewId - ID of the review being edited
+     */
     const handleSaveEdit = async (reviewId) => {
         try {
             const res = await fetch(`${API_URL}/api/reviews/${reviewId}`, {
@@ -115,12 +140,19 @@ export default function ReviewSection({ recipeId }) {
         }
     };
 
+    /**
+     * Cancels the review editing process
+     */
     const handleCancelEdit = () => {
         setEditingReviewId(null);
         setEditedComment("");
         setEditedRating(5);
     };
 
+    /**
+     * Deletes a review after confirmation
+     * @param {string} id - ID of the review to delete
+     */
     const handleDelete = (id) => {
         if (window.confirm("Are you sure you want to delete this review?")) {
             console.log("Deleting review with ID:", id);
@@ -144,6 +176,9 @@ export default function ReviewSection({ recipeId }) {
         }
     };
 
+    /**
+     * Sorts reviews based on selected criteria
+     */
     const sortedReviews = [...reviews].sort((a, b) => {
         if (sortOption === 'date-desc') {
             return new Date(b.createdAt) - new Date(a.createdAt);
@@ -166,18 +201,22 @@ export default function ReviewSection({ recipeId }) {
                 <p>No reviews yet for this recipe.</p>
             ) : (
                 <>
+                    {/* Review sorting controls */}
                     <select id="sort" value={sortOption} onChange={(e) => setSortOption(e.target.value)}>
                         <option value="date-desc">Date (Newest First)</option>
                         <option value="date-asc">Date (Oldest First)</option>
                         <option value="rating-desc">Rating (High to Low)</option>
                         <option value="rating-asc">Rating (Low to High)</option>
                     </select>
+                    
+                    {/* Reviews list */}
                     <ul className="review-list">
                         {sortedReviews.map((review, index) => (
                             <li key={index} className="review">
                                 <p><strong>{review.userName}</strong></p>
                                 <p className="review-rating">{'⭐'.repeat(review.rating)}</p>
                                 {editingReviewId === review._id ? (
+                                    // Edit mode view
                                     <>
                                         <select 
                                             value={editedRating} 
@@ -201,9 +240,11 @@ export default function ReviewSection({ recipeId }) {
                                         </div>
                                     </>
                                 ) : (
+                                    // Display mode view
                                     <>
                                         <p className="review-comment">{review.comment}</p>
                                         <small>{new Date(review.createdAt).toLocaleDateString()}</small>
+                                        {/* Show edit/delete buttons only for the review author */}
                                         {localStorage.getItem("user") && JSON.parse(localStorage.getItem("user")).email === review.userEmail && (
                                             <div className="review-actions">
                                                 <button onClick={() => handleEdit(review)}>Edit</button>
@@ -217,6 +258,8 @@ export default function ReviewSection({ recipeId }) {
                     </ul>
                 </>
             )}
+            
+            {/* New review form (only shown to logged-in users) */}
             {localStorage.getItem("user") && (
                 <form
                     className="review-form"
