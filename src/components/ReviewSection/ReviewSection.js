@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import reviewsData from "../../data/reviews.json";
+import React, { useEffect, useState, useCallback } from "react";
 import "./ReviewSection.css";
 
 export default function ReviewSection({ recipeId }) {
@@ -7,15 +6,79 @@ export default function ReviewSection({ recipeId }) {
     const [sortOption, setSortOption] = useState('date-desc');
 
     useEffect(() => {
-        const filtered = reviewsData.filter((review) => review.id === recipeId);
-        setReviews(filtered);
+        async function fetchReviews() {
+            if (!recipeId) {
+                console.warn("No recipeId provided to fetch reviews.");
+                return;
+            }
+            console.log("Fetching reviews for recipeId:", recipeId);
+            try {
+                const res = await fetch(`http://localhost:5001/api/reviews/${recipeId}`);
+                if (!res.ok) {
+                    throw new Error(`Failed to fetch: ${res.statusText}`);
+                }
+                const data = await res.json();
+                console.log("Fetched reviews:", data);
+                if (data && data.length > 0) {
+                    setReviews(data);
+                } else {
+                    console.warn("No reviews found for this recipe.");
+                }
+            } catch (err) {
+                console.error("Error fetching reviews:", err);
+            }
+        }
+
+        fetchReviews();
+    }, [recipeId]);
+
+    const handleSubmit = useCallback(async (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const userStr = localStorage.getItem("user");
+
+        if (!userStr) {
+            alert("You must be logged in to submit a review.");
+            return;
+        }
+
+        const user = JSON.parse(userStr);
+        const newReview = {
+            recipeId,
+            userName: user.name,
+            userEmail: user.email,
+            rating: form.rating.value,
+            comment: form.comment.value,
+        };
+
+        console.log("Submitting new review:", newReview);
+
+        try {
+            const res = await fetch("http://localhost:5001/api/reviews", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(newReview),
+            });
+            
+            if (!res.ok) {
+                throw new Error(`Failed to submit review: ${res.statusText}`);
+            }
+            
+            const savedReview = await res.json();
+            console.log("Response from submitting review:", savedReview);
+            setReviews(prevReviews => [savedReview, ...prevReviews]);
+            form.reset();
+        } catch (err) {
+            console.error("Error submitting review:", err);
+            alert(`Failed to submit review: ${err.message}`);
+        }
     }, [recipeId]);
 
     const sortedReviews = [...reviews].sort((a, b) => {
         if (sortOption === 'date-desc') {
-            return new Date(b.date) - new Date(a.date);
+            return new Date(b.createdAt) - new Date(a.createdAt);
         } else if (sortOption === 'date-asc') {
-            return new Date(a.date) - new Date(b.date);
+            return new Date(a.createdAt) - new Date(b.createdAt);
         } else if (sortOption === 'rating-desc') {
             return b.rating - a.rating;
         } else if (sortOption === 'rating-asc') {
@@ -42,13 +105,32 @@ export default function ReviewSection({ recipeId }) {
                     <ul className="review-list">
                         {sortedReviews.map((review, index) => (
                             <li key={index} className="review">
-                                <p><strong>{review.user}</strong> ({review.date})</p>
+                                <p><strong>{review.userName}</strong></p>
                                 <p className="review-rating">{'⭐'.repeat(review.rating)}</p>
                                 <p className="review-comment">{review.comment}</p>
+                                <small>{new Date(review.createdAt).toLocaleDateString()}</small>
                             </li>
                         ))}
                     </ul>
                 </>
+            )}
+            {localStorage.getItem("user") && (
+                <form
+                    className="review-form"
+                    onSubmit={handleSubmit}
+                >
+                    <h3>Add Your Review</h3>
+                    <select name="rating" required>
+                        <option value="">Rating</option>
+                        {[5, 4, 3, 2, 1].map((r) => (
+                            <option key={r} value={r}>
+                                {r} ⭐
+                            </option>
+                        ))}
+                    </select>
+                    <textarea name="comment" placeholder="Write your thoughts..." required />
+                    <button type="submit">Submit Review</button>
+                </form>
             )}
         </div>
     );
