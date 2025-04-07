@@ -35,14 +35,12 @@ export default function ReviewSection({ recipeId }) {
                 console.warn("No recipeId provided to fetch reviews.");
                 return;
             }
-            console.log("Fetching reviews for recipeId:", recipeId);
             try {
                 const res = await fetch(`${API_URL}/api/reviews/${recipeId}`);
                 if (!res.ok) {
                     throw new Error(`Failed to fetch: ${res.statusText}`);
                 }
                 const data = await res.json();
-                console.log("Fetched reviews:", data);
                 if (data && data.length > 0) {
                     setReviews(data);
                 } else {
@@ -80,8 +78,6 @@ export default function ReviewSection({ recipeId }) {
             comment: form.comment.value,
         };
 
-        console.log("Submitting new review:", newReview);
-
         try {
             const res = await fetch(`${API_URL}/api/reviews`, {
                 method: "POST",
@@ -94,7 +90,6 @@ export default function ReviewSection({ recipeId }) {
             }
             
             const savedReview = await res.json();
-            console.log("Response from submitting review:", savedReview);
             setReviews(prevReviews => [savedReview, ...prevReviews]);
             form.reset();
         } catch (err) {
