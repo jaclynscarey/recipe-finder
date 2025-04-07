@@ -4,6 +4,7 @@ import "./ReviewSection.css";
 export default function ReviewSection({ recipeId }) {
     const [reviews, setReviews] = useState([]);
     const [sortOption, setSortOption] = useState('date-desc');
+    const REACT_APP = process.env.REACT_APP_API_URL || "http://localhost:5001";
 
     useEffect(() => {
         async function fetchReviews() {
@@ -13,7 +14,7 @@ export default function ReviewSection({ recipeId }) {
             }
             console.log("Fetching reviews for recipeId:", recipeId);
             try {
-                const res = await fetch(`http://localhost:5001/api/reviews/${recipeId}`);
+                const res = await fetch(`${REACT_APP}/api/reviews/${recipeId}`);
                 if (!res.ok) {
                     throw new Error(`Failed to fetch: ${res.statusText}`);
                 }
@@ -30,7 +31,7 @@ export default function ReviewSection({ recipeId }) {
         }
 
         fetchReviews();
-    }, [recipeId]);
+    }, [recipeId, REACT_APP]);
 
     const handleSubmit = useCallback(async (e) => {
         e.preventDefault();
@@ -54,7 +55,7 @@ export default function ReviewSection({ recipeId }) {
         console.log("Submitting new review:", newReview);
 
         try {
-            const res = await fetch("http://localhost:5001/api/reviews", {
+            const res = await fetch(`${REACT_APP}/api/reviews`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(newReview),
@@ -72,7 +73,7 @@ export default function ReviewSection({ recipeId }) {
             console.error("Error submitting review:", err);
             alert(`Failed to submit review: ${err.message}`);
         }
-    }, [recipeId]);
+    }, [recipeId, REACT_APP]);
 
     const sortedReviews = [...reviews].sort((a, b) => {
         if (sortOption === 'date-desc') {
