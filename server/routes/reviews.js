@@ -36,7 +36,7 @@ router.post("/", async (req, res) => {
 // Update a review
 router.put("/:id", async (req, res) => {
     try {
-        console.log("Update data:", req.body);
+        // console.log("Update data:", req.body);
         
         const updatedReview = await Review.findByIdAndUpdate(
             req.params.id,
@@ -45,14 +45,14 @@ router.put("/:id", async (req, res) => {
         );
         
         if (!updatedReview) {
-            console.log("No review found with ID:", req.params.id);
+            // console.log("No review found with ID:", req.params.id);
             return res.status(404).json({ error: "Review not found" });
         }
         
-        console.log("Updated review:", updatedReview);
+        // console.log("Updated review:", updatedReview);
         res.json(updatedReview);
     } catch (err) {
-        console.error("Error updating review:", err);
+        // console.error("Error updating review:", err);
         res.status(500).json({ error: err.message });
     }
 });
@@ -61,23 +61,23 @@ router.put("/:id", async (req, res) => {
 router.delete("/:id", async (req, res) => {
     try {
         const deletedReview = await Review.findByIdAndDelete(req.params.id);
-        console.log("Delete result:", deletedReview);
+        // console.log("Delete result:", deletedReview);
         
         if (!deletedReview) {
-            console.log("No review found with ID:", req.params.id);
+            // console.log("No review found with ID:", req.params.id);
             return res.status(404).json({ error: "Review not found" });
         }
         
         // Verify the review was actually deleted
         const verifyDeletion = await Review.findById(req.params.id);
         if (verifyDeletion) {
-            console.log("Review still exists after deletion attempt!");
+            // console.log("Review still exists after deletion attempt!");
             return res.status(500).json({ error: "Failed to delete review" });
         }
         
         res.json({ message: "Review deleted successfully" });
     } catch (err) {
-        console.error("Error deleting review:", err);
+        // console.error("Error deleting review:", err);
         res.status(500).json({ error: err.message });
     }
 });

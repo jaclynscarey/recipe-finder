@@ -38,13 +38,13 @@ mongoose.connect(process.env.MONGO_URI, {
 })
 .then(() => {
     // Log successful database connection
-    console.log("Connected to MongoDB");
+    // console.log("Connected to MongoDB");
     // Start the Express server
     app.listen(process.env.PORT, () => {
-        console.log(`Server is running on port ${process.env.PORT}`);
+        // console.log(`Server is running on port ${process.env.PORT}`);
     })
 })
 .catch((error) => {
     // Log any database connection errors
-    console.error("MongoDB connection error:", error);
+    // console.error("MongoDB connection error:", error);
 });
