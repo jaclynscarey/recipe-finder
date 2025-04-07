@@ -14,12 +14,21 @@ router.get("/:recipeId", async (req, res) => {
 
 // Add a new review
 router.post("/", async (req, res) => {
-    const { recipeId, userName, userEmail, rating, comment } = req.body;
     try {
+        const { recipeId, userName, userEmail, rating, comment } = req.body;
+
+        // Check if user already left a review for this recipe
+        const existingReview = await Review.findOne({ recipeId, userEmail });
+        if (existingReview) {
+            return res.status(400).json({ message: "You have already submitted a review for this recipe." });
+        }
+
+        // Create and save new review
         const newReview = new Review({ recipeId, userName, userEmail, rating, comment });
         await newReview.save();
         res.status(201).json(newReview);
     } catch (err) {
+        console.error("Error adding review:", err);
         res.status(400).json({ error: err.message });
     }
 });

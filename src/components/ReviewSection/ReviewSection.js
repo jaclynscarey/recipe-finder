@@ -19,6 +19,12 @@ export default function ReviewSection({ recipeId }) {
         ? "http://localhost:5001"
         : process.env.REACT_APP_API_URL;
 
+    // Check if user has already reviewed this recipe
+    const user = JSON.parse(localStorage.getItem("user"));
+    const hasReviewed = user && reviews.some(
+        (review) => review.userEmail === user.email
+    );
+
     /**
      * Effect hook to fetch reviews when recipeId changes
      * Loads existing reviews for the current recipe
@@ -260,7 +266,7 @@ export default function ReviewSection({ recipeId }) {
             )}
             
             {/* New review form (only shown to logged-in users) */}
-            {localStorage.getItem("user") && (
+            {user && !hasReviewed && (
                 <form
                     className="review-form"
                     onSubmit={handleSubmit}
@@ -275,8 +281,11 @@ export default function ReviewSection({ recipeId }) {
                         ))}
                     </select>
                     <textarea name="comment" placeholder="Write your thoughts..." required />
-                    <button type="submit">Submit Review</button>
+                    <button type="submit" disabled={hasReviewed}>Submit Review</button>
                 </form>
+            )}
+            {user && hasReviewed && (
+                <p>You've already submitted a review for this recipe.</p>
             )}
         </div>
     );
