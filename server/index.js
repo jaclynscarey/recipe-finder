@@ -12,7 +12,7 @@ const app = express();
 
 // Define allowed origins for CORS (Cross-Origin Resource Sharing)
 // This specifies which domains are allowed to access the API
-const allowedOrigins = ["http://localhost:3000", "https://recipe-finder-enhancement3.netlify.app"];
+const allowedOrigins = ["http://localhost:3000", "https://recipe-finder-enhancement3.netlify.app", "https://recipe-finder.jaclyncarey.com", "https://recipe-finder-original.netlify.app"];
 
 // Configure middleware
 // CORS middleware with custom origin validation
