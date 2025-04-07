@@ -45,7 +45,6 @@ export default function IntroPage({ setMealResult }) {
     /**
      * Handles click on recipe card
      * Navigates to the detailed recipe page
-     * @param {Event} event - Click event
      */
     function handleClick(event) {
         event.preventDefault();

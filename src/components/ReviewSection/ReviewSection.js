@@ -32,7 +32,7 @@ export default function ReviewSection({ recipeId }) {
     useEffect(() => {
         async function fetchReviews() {
             if (!recipeId) {
-                console.warn("No recipeId provided to fetch reviews.");
+                // console.warn("No recipeId provided to fetch reviews.");
                 return;
             }
             try {
@@ -44,10 +44,10 @@ export default function ReviewSection({ recipeId }) {
                 if (data && data.length > 0) {
                     setReviews(data);
                 } else {
-                    console.warn("No reviews found for this recipe.");
+                    // console.warn("No reviews found for this recipe.");
                 }
             } catch (err) {
-                console.error("Error fetching reviews:", err);
+                // console.error("Error fetching reviews:", err);
             }
         }
 
@@ -57,7 +57,6 @@ export default function ReviewSection({ recipeId }) {
     /**
      * Handles submission of new reviews
      * Validates user authentication and submits review to API
-     * @param {Event} e - Form submission event
      */
     const handleSubmit = useCallback(async (e) => {
         e.preventDefault();
@@ -93,14 +92,13 @@ export default function ReviewSection({ recipeId }) {
             setReviews(prevReviews => [savedReview, ...prevReviews]);
             form.reset();
         } catch (err) {
-            console.error("Error submitting review:", err);
+            // console.error("Error submitting review:", err);
             alert(`Failed to submit review: ${err.message}`);
         }
     }, [recipeId, API_URL]);
 
     /**
      * Initiates review editing mode
-     * @param {Object} review - The review to be edited
      */
     const handleEdit = (review) => {
         setEditingReviewId(review._id);
@@ -110,7 +108,6 @@ export default function ReviewSection({ recipeId }) {
 
     /**
      * Saves edited review to the API
-     * @param {string} reviewId - ID of the review being edited
      */
     const handleSaveEdit = async (reviewId) => {
         try {
@@ -136,7 +133,7 @@ export default function ReviewSection({ recipeId }) {
             setEditedComment("");
             setEditedRating(5);
         } catch (err) {
-            console.error("Error updating review:", err);
+            // console.error("Error updating review:", err);
             alert("Failed to update review. Please try again.");
         }
     };
@@ -152,11 +149,10 @@ export default function ReviewSection({ recipeId }) {
 
     /**
      * Deletes a review after confirmation
-     * @param {string} id - ID of the review to delete
      */
     const handleDelete = (id) => {
         if (window.confirm("Are you sure you want to delete this review?")) {
-            console.log("Deleting review with ID:", id);
+            // console.log("Deleting review with ID:", id);
             fetch(`${API_URL}/api/reviews/${id}`, {
                 method: "DELETE"
             })
@@ -167,11 +163,11 @@ export default function ReviewSection({ recipeId }) {
                 return res.json();
             })
             .then(data => {
-                console.log("Delete response:", data);
+                // console.log("Delete response:", data);
                 setReviews(prev => prev.filter(r => r._id !== id));
             })
             .catch(err => {
-                console.error("Error deleting review:", err);
+                // console.error("Error deleting review:", err);
                 alert("Failed to delete review. Please try again.");
             });
         }

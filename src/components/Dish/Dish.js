@@ -11,7 +11,6 @@ export default function Dish({ dish, id, setMealResult }) {
     /**
      * Handles click on recipe card
      * Fetches detailed recipe data and navigates to recipe page
-     * @param {Event} event - Click event
      */
     async function handleClick(event) {
         event.preventDefault();

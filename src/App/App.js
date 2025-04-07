@@ -49,7 +49,6 @@ export default function App() {
   /**
    * Handles successful Google OAuth login
    * Decodes the JWT credential and stores user data
-   * @param {Object} credentialResponse - Response from Google OAuth
    */
   const handleLoginSuccess = (credentialResponse) => {
     const userObject = jwtDecode(credentialResponse.credential);

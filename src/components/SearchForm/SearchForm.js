@@ -58,7 +58,6 @@ export default function SearchForm({ searchTerm, setSearchTerm, setResults, cate
 
   /**
    * Handles input changes for name-based search
-   * @param {Event} event - Input change event
    */
   function handleChange(event) {
     setSearchTerm(event.target.value);
@@ -67,7 +66,6 @@ export default function SearchForm({ searchTerm, setSearchTerm, setResults, cate
   /**
    * Handles form submission and recipe search
    * Fetches recipe data from TheMealDB API based on search criteria
-   * @param {Event} event - Form submission event
    */
   async function handleSubmit(event) {
     event.preventDefault();

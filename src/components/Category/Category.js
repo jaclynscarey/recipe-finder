@@ -9,7 +9,6 @@ export default function Category({ setCategory, category, categories }) {
     /**
      * Handles click on category card
      * Updates the selected category in parent component
-     * @param {Event} event - Click event
      */
     function handleClick(event) {
         categories.forEach(x => {
