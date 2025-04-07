@@ -8,6 +8,7 @@ export default function CategoriesPage({ setCategory, setSearchTerm }) {
     // Available search categories
     const categories = ["Name", "Ingredient", "Nationality"];
 
+    // Reset search state when page loads
     setSearchTerm(undefined);
     setCategory(undefined);
 

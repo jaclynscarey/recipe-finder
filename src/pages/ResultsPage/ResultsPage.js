@@ -15,7 +15,10 @@ const endpoint = {
 };
 
 export default function ResultsPage({ results: initialResults, searchTerm: initialSearchTerm, setMealResult }) {
+    // Get search parameters from URL
     const { category, searchTerm } = useParams();
+    
+    // State management for results and loading status
     const [results, setResults] = useState(initialResults);
     const [loading, setLoading] = useState(!initialResults);
 
