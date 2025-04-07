@@ -4,7 +4,10 @@ import "./ReviewSection.css";
 export default function ReviewSection({ recipeId }) {
     const [reviews, setReviews] = useState([]);
     const [sortOption, setSortOption] = useState('date-desc');
-    const REACT_APP = process.env.REACT_APP_API_URL || "http://localhost:5001";
+    const [editingReviewId, setEditingReviewId] = useState(null);
+    const [editedComment, setEditedComment] = useState("");
+    const [editedRating, setEditedRating] = useState(5);
+    const REACT_APP = "http://localhost:5001";
 
     useEffect(() => {
         async function fetchReviews() {
@@ -14,7 +17,7 @@ export default function ReviewSection({ recipeId }) {
             }
             console.log("Fetching reviews for recipeId:", recipeId);
             try {
-                const res = await fetch(`${REACT_APP}/api/reviews/${recipeId}`);
+                const res = await fetch(`http://localhost:5001/api/reviews/${recipeId}`);
                 if (!res.ok) {
                     throw new Error(`Failed to fetch: ${res.statusText}`);
                 }
@@ -55,7 +58,7 @@ export default function ReviewSection({ recipeId }) {
         console.log("Submitting new review:", newReview);
 
         try {
-            const res = await fetch(`${REACT_APP}/api/reviews`, {
+            const res = await fetch(`http://localhost:5001/api/reviews`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(newReview),
@@ -73,7 +76,71 @@ export default function ReviewSection({ recipeId }) {
             console.error("Error submitting review:", err);
             alert(`Failed to submit review: ${err.message}`);
         }
-    }, [recipeId, REACT_APP]);
+    }, [recipeId]);
+
+    const handleEdit = (review) => {
+        setEditingReviewId(review._id);
+        setEditedComment(review.comment);
+        setEditedRating(review.rating);
+    };
+
+    const handleSaveEdit = async (reviewId) => {
+        try {
+            const res = await fetch(`http://localhost:5001/api/reviews/${reviewId}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    comment: editedComment.trim(),
+                    rating: editedRating
+                })
+            });
+
+            if (!res.ok) {
+                const errMsg = await res.text();
+                throw new Error(`Failed to update review: ${errMsg}`);
+            }
+
+            const updated = await res.json();
+            setReviews(prev => prev.map(r => r._id === reviewId ? updated : r));
+            setEditingReviewId(null);
+            setEditedComment("");
+            setEditedRating(5);
+        } catch (err) {
+            console.error("Error updating review:", err);
+            alert("Failed to update review. Please try again.");
+        }
+    };
+
+    const handleCancelEdit = () => {
+        setEditingReviewId(null);
+        setEditedComment("");
+        setEditedRating(5);
+    };
+
+    const handleDelete = (id) => {
+        if (window.confirm("Are you sure you want to delete this review?")) {
+            console.log("Deleting review with ID:", id);
+            fetch(`http://localhost:5001/api/reviews/${id}`, {
+                method: "DELETE"
+            })
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error(`HTTP error! status: ${res.status}`);
+                }
+                return res.json();
+            })
+            .then(data => {
+                console.log("Delete response:", data);
+                setReviews(prev => prev.filter(r => r._id !== id));
+            })
+            .catch(err => {
+                console.error("Error deleting review:", err);
+                alert("Failed to delete review. Please try again.");
+            });
+        }
+    };
 
     const sortedReviews = [...reviews].sort((a, b) => {
         if (sortOption === 'date-desc') {
@@ -108,8 +175,41 @@ export default function ReviewSection({ recipeId }) {
                             <li key={index} className="review">
                                 <p><strong>{review.userName}</strong></p>
                                 <p className="review-rating">{'⭐'.repeat(review.rating)}</p>
-                                <p className="review-comment">{review.comment}</p>
-                                <small>{new Date(review.createdAt).toLocaleDateString()}</small>
+                                {editingReviewId === review._id ? (
+                                    <>
+                                        <select 
+                                            value={editedRating} 
+                                            onChange={(e) => setEditedRating(Number(e.target.value))}
+                                            className="edit-rating"
+                                        >
+                                            {[5, 4, 3, 2, 1].map((r) => (
+                                                <option key={r} value={r}>
+                                                    {r} ⭐
+                                                </option>
+                                            ))}
+                                        </select>
+                                        <textarea
+                                            value={editedComment}
+                                            onChange={(e) => setEditedComment(e.target.value)}
+                                            className="edit-textarea"
+                                        />
+                                        <div className="review-actions">
+                                            <button onClick={() => handleSaveEdit(review._id)}>Save</button>
+                                            <button onClick={handleCancelEdit}>Cancel</button>
+                                        </div>
+                                    </>
+                                ) : (
+                                    <>
+                                        <p className="review-comment">{review.comment}</p>
+                                        <small>{new Date(review.createdAt).toLocaleDateString()}</small>
+                                        {localStorage.getItem("user") && JSON.parse(localStorage.getItem("user")).email === review.userEmail && (
+                                            <div className="review-actions">
+                                                <button onClick={() => handleEdit(review)}>Edit</button>
+                                                <button onClick={() => handleDelete(review._id)}>Delete</button>
+                                            </div>
+                                        )}
+                                    </>
+                                )}
                             </li>
                         ))}
                     </ul>
