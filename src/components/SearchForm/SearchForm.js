@@ -29,7 +29,7 @@ export default function SearchForm({ searchTerm, setSearchTerm, setResults, cate
     }
     
     loadDropDownItems();
-  }, [category]);
+  }, [category, endpoint]);
 
   if (!dropDownItems) {
     return (

@@ -21,7 +21,7 @@ export default function IntroPage({ setMealResult }) {
         }
 
         getRandomRecipe();
-    }, []);
+    }, [setMealResult]);
 
     if (!randomDish) {
         return (
