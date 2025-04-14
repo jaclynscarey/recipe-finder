@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './SearchForm.css';
 
@@ -6,11 +6,11 @@ export default function SearchForm({ searchTerm, setSearchTerm, setResults, cate
   const [dropDownItems, setDropDownItems] = useState([]);
   const BASE_URL = "https://www.themealdb.com/api/json/v1/1/";
   const navigate = useNavigate();
-  const endpoint = {
+  const endpoint = useMemo(() => ({
     "Nationality": ["filter.php?a=", "list.php?a=list", "strArea"],
     "Ingredient": ["filter.php?i=", "list.php?i=list", "strIngredient"],
     "Name": ["search.php?s=", "search.php?s=", "strMeal"],
-  };
+  }), []);
   
   category = category || 'Name';
 
