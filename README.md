@@ -22,13 +22,18 @@ The Recipe Finder App is a web application that allows users to search for recip
 
 ## Screenshots
 
-<a href="https://github.com/user-attachments/assets/cf8ea843-c62d-48c9-9344-76cbda9e3635" target="_blank">
-  <img src="https://github.com/user-attachments/assets/cf8ea843-c62d-48c9-9344-76cbda9e3635" alt="Screenshot 1" width="400">
+<a href="https://github.com/user-attachments/assets/06fca30f-8449-42fc-9b8c-e81ceea31989" target="_blank">
+  <img src="https://github.com/user-attachments/assets/06fca30f-8449-42fc-9b8c-e81ceea31989" alt="Screenshot 1" width="400">
 </a>
-<a href="https://github.com/user-attachments/assets/58595294-3bd2-482a-8baf-c4d578f21c54" target="_blank">
-  <img src="https://github.com/user-attachments/assets/58595294-3bd2-482a-8baf-c4d578f21c54" alt="Screenshot 2" width="400">
+<a href="https://github.com/user-attachments/assets/a974f2af-5898-4d68-a3a0-7357d442f165" target="_blank">
+  <img src="https://github.com/user-attachments/assets/a974f2af-5898-4d68-a3a0-7357d442f165" alt="Screenshot 2" width="400">
 </a>
-
+<a href="https://github.com/user-attachments/assets/cf49b53e-d650-4337-b78c-ef3c77726859" target="_blank">
+  <img src="https://github.com/user-attachments/assets/cf49b53e-d650-4337-b78c-ef3c77726859" alt="Screenshot 3" width="400">
+</a>
+<a href="https://github.com/user-attachments/assets/e13f2afd-cf87-491d-91ee-8976e28affac" target="_blank">
+  <img src="https://github.com/user-attachments/assets/e13f2afd-cf87-491d-91ee-8976e28affac" alt="Screenshot 4" width="400">
+</a>
 
 ## Key Features
 
