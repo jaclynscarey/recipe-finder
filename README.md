@@ -17,28 +17,16 @@
 
 ## Description
 
-The Recipe Finder App is a web application that allows users to search for recipes based on various categories such as nationality, ingredients, and dish name. It provides a simple and intuitive interface for users to discover new recipes and find inspiration for their cooking adventures.
+The Recipe Finder App is a web application that allows users to search for recipes based on various categories such as nationality, ingredients, and dish name. It provides a simple and intuitive interface for users to discover new recipes and find inspiration for their cooking adventures. This version builds upon Enhancement Two by implementing full CRUD functionality for user reviews using MongoDB. The app now allows authenticated users to leave, edit, and delete their own reviews. The previous static JSON dataset has been removed in favor of real-time data storage and retrieval from a MongoDB Atlas database.
 
 
 ## Screenshots
 
-<a href="https://github.com/jaclynscarey/recipe-finder/assets/109121563/fe027561-27de-4df8-be52-3bd5ae5dc543" target="_blank">
-  <img src="https://github.com/jaclynscarey/recipe-finder/assets/109121563/fe027561-27de-4df8-be52-3bd5ae5dc543" alt="Screenshot 1" width="400">
+<a href="https://github.com/user-attachments/assets/cf8ea843-c62d-48c9-9344-76cbda9e3635" target="_blank">
+  <img src="https://github.com/user-attachments/assets/cf8ea843-c62d-48c9-9344-76cbda9e3635" alt="Screenshot 1" width="400">
 </a>
-<a href="https://github.com/jaclynscarey/recipe-finder/assets/109121563/408691bc-3c66-466a-ab01-60c839b682b6" target="_blank">
-  <img src="https://github.com/jaclynscarey/recipe-finder/assets/109121563/408691bc-3c66-466a-ab01-60c839b682b6" alt="Screenshot 2" width="400">
-</a>
-<a href="https://github.com/jaclynscarey/recipe-finder/assets/109121563/c4017770-76cc-4066-b877-c11a0e3e87a3" target="_blank">
-  <img src="https://github.com/jaclynscarey/recipe-finder/assets/109121563/c4017770-76cc-4066-b877-c11a0e3e87a3" alt="Screenshot 3" width="400">
-</a>
-<a href="https://github.com/jaclynscarey/recipe-finder/assets/109121563/0116c16d-4520-47cd-b474-730a72a89f61" target="_blank">
-  <img src="https://github.com/jaclynscarey/recipe-finder/assets/109121563/0116c16d-4520-47cd-b474-730a72a89f61" alt="Screenshot 5" width="400">
-</a>
-<a href="https://github.com/jaclynscarey/recipe-finder/assets/109121563/7a2f58ae-9e60-4122-8273-f94d0a915068" target="_blank">
-  <img src="https://github.com/jaclynscarey/recipe-finder/assets/109121563/7a2f58ae-9e60-4122-8273-f94d0a915068" alt="Screenshot 4" width="400">
-</a>
-<a href="https://github.com/jaclynscarey/recipe-finder/assets/109121563/a9cdd30b-8f86-4968-a118-e97a7b2d8842" target="_blank">
-  <img src="https://github.com/jaclynscarey/recipe-finder/assets/109121563/a9cdd30b-8f86-4968-a118-e97a7b2d8842" alt="Screenshot 6" width="400">
+<a href="https://github.com/user-attachments/assets/58595294-3bd2-482a-8baf-c4d578f21c54" target="_blank">
+  <img src="https://github.com/user-attachments/assets/58595294-3bd2-482a-8baf-c4d578f21c54" alt="Screenshot 2" width="400">
 </a>
 
 
@@ -48,6 +36,11 @@ The Recipe Finder App is a web application that allows users to search for recip
 * Dynamic Dropdowns: The app dynamically generates dropdown menus based on the selected category, providing users with relevant options to choose from.
 * Random Recipe: The home page of the app presents users with a randomly selected dish or meal each time they visit, adding an element of surprise and exploration.
 * Detailed Recipe View: Clicking on a recipe from the search results opens a detailed recipe view, showcasing the recipe name, ingredients, instructions, and even a video demonstration if available.
+* Google OAuth Login: Users can log in securely using their Google account.
+* Conditional Navigation: The navigation bar updates based on the user's login status (Login/Logout).
+* Login Confirmation Page: After successful login, users are redirected to a dedicated confirmation page.
+* User Reviews (CRUD): Authenticated users can submit, edit, and delete reviews for individual recipes. Each review is stored and retrieved in real-time from a MongoDB database.
+* Client-Side Sorting: Reviews can be sorted by date (newest/oldest) or rating (highest/lowest).
 
 
 ## Technologies Used
@@ -59,6 +52,11 @@ The Recipe Search App is built using the following technologies:
 * React Hooks: Used to manage state and side effects in functional components
 * Fetch API: Used to retrieve data from the external recipe API
 * CSS: Styling the app for an appealing and intuitive user interface
+* @react-oauth/google: Used to integrate Google OAuth authentication.
+* jwt-decode: For decoding user tokens to personalize the UI.
+* Express.js: Handles the backend logic and API routes for managing reviews.
+* MongoDB Atlas: Cloud-hosted NoSQL database for storing user reviews.
+* Mongoose: ODM for modeling review data and interacting with MongoDB.
 
 ### Trello
 <a href="https://trello.com/b/WRdU0BgY/recipe-finder" target="_blank">Trello Board used for planning</a>
@@ -69,7 +67,7 @@ The Recipe Search App is built using the following technologies:
 
 ## Deployed App
 
-The Recipe Finder App is deployed and can be accessed at: [https://recipe-finder.jaclyncarey.com/](https://recipe-finder.jaclyncarey.com/)
+The Recipe Finder App is deployed and can be accessed at: [https://recipe-finder-enhancement3.netlify.app/](https://recipe-finder-enhancement3.netlify.app/)
 
 ## Getting Started/Installation Instructions
 
@@ -82,13 +80,18 @@ To run the Recipe Finder App locally on your machine, follow these steps:
 * Start the development server: `npm start`
 * Open the app in your browser: http://localhost:3000
 
+To run the backend server locally:
+* Navigate to the server directory.
+* Install backend dependencies: `npm install`
+* Start the backend server: `node index.js` (ensure MongoDB connection string is configured in a .env file)
+* The backend will run on http://localhost:5001 by default.
+
 
 ## Icebox Items
 
 The following features are planned for future implementation:
 
 * Pagination: Implement pagination for search results to display recipes in manageable chunks, allowing users to navigate through multiple pages of results.
-* User Login: Add user authentication functionality to allow users to create accounts and log in.
 * Save Recipes: Enable logged-in users to save recipes to their account for easy access and organization.
 
 
