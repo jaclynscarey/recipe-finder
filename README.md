@@ -17,28 +17,16 @@
 
 ## Description
 
-The Recipe Finder App is a web application that allows users to search for recipes based on various categories such as nationality, ingredients, and dish name. It provides a simple and intuitive interface for users to discover new recipes and find inspiration for their cooking adventures.
+The Recipe Finder App is a web application that allows users to search for recipes based on various categories such as nationality, ingredients, and dish name. It provides a simple and intuitive interface for users to discover new recipes and find inspiration for their cooking adventures. This version builds upon Enhancement One by introducing a simulated user review system using static JSON data. While users cannot yet submit reviews, the app now includes functionality to display sample reviews and sort them by date or rating. Google OAuth authentication is still in use, and only logged-in users can view the reviews section.
 
 
 ## Screenshots
 
-<a href="https://github.com/jaclynscarey/recipe-finder/assets/109121563/fe027561-27de-4df8-be52-3bd5ae5dc543" target="_blank">
-  <img src="https://github.com/jaclynscarey/recipe-finder/assets/109121563/fe027561-27de-4df8-be52-3bd5ae5dc543" alt="Screenshot 1" width="400">
+<a href="https://github.com/user-attachments/assets/567a0cfb-18c1-4aa8-aab1-5bd62b298c0b" target="_blank">
+  <img src="https://github.com/user-attachments/assets/567a0cfb-18c1-4aa8-aab1-5bd62b298c0b" alt="Screenshot 1" width="400">
 </a>
-<a href="https://github.com/jaclynscarey/recipe-finder/assets/109121563/408691bc-3c66-466a-ab01-60c839b682b6" target="_blank">
-  <img src="https://github.com/jaclynscarey/recipe-finder/assets/109121563/408691bc-3c66-466a-ab01-60c839b682b6" alt="Screenshot 2" width="400">
-</a>
-<a href="https://github.com/jaclynscarey/recipe-finder/assets/109121563/c4017770-76cc-4066-b877-c11a0e3e87a3" target="_blank">
-  <img src="https://github.com/jaclynscarey/recipe-finder/assets/109121563/c4017770-76cc-4066-b877-c11a0e3e87a3" alt="Screenshot 3" width="400">
-</a>
-<a href="https://github.com/jaclynscarey/recipe-finder/assets/109121563/0116c16d-4520-47cd-b474-730a72a89f61" target="_blank">
-  <img src="https://github.com/jaclynscarey/recipe-finder/assets/109121563/0116c16d-4520-47cd-b474-730a72a89f61" alt="Screenshot 5" width="400">
-</a>
-<a href="https://github.com/jaclynscarey/recipe-finder/assets/109121563/7a2f58ae-9e60-4122-8273-f94d0a915068" target="_blank">
-  <img src="https://github.com/jaclynscarey/recipe-finder/assets/109121563/7a2f58ae-9e60-4122-8273-f94d0a915068" alt="Screenshot 4" width="400">
-</a>
-<a href="https://github.com/jaclynscarey/recipe-finder/assets/109121563/a9cdd30b-8f86-4968-a118-e97a7b2d8842" target="_blank">
-  <img src="https://github.com/jaclynscarey/recipe-finder/assets/109121563/a9cdd30b-8f86-4968-a118-e97a7b2d8842" alt="Screenshot 6" width="400">
+<a href="https://github.com/user-attachments/assets/b9c486d6-3c1b-4a32-aa29-7ca1c6fac1de" target="_blank">
+  <img src="https://github.com/user-attachments/assets/b9c486d6-3c1b-4a32-aa29-7ca1c6fac1de" alt="Screenshot 2" width="400">
 </a>
 
 
@@ -48,6 +36,11 @@ The Recipe Finder App is a web application that allows users to search for recip
 * Dynamic Dropdowns: The app dynamically generates dropdown menus based on the selected category, providing users with relevant options to choose from.
 * Random Recipe: The home page of the app presents users with a randomly selected dish or meal each time they visit, adding an element of surprise and exploration.
 * Detailed Recipe View: Clicking on a recipe from the search results opens a detailed recipe view, showcasing the recipe name, ingredients, instructions, and even a video demonstration if available.
+* Google OAuth Login: Users can log in securely using their Google account.
+* Conditional Navigation: The navigation bar updates based on the user's login status (Login/Logout).
+* Login Confirmation Page: After successful login, users are redirected to a dedicated confirmation page.
+* User Reviews (Read-Only): Logged-in users can view simulated reviews on the recipe details page.
+* Client-Side Sorting: Reviews can be sorted by date (newest/oldest) or rating (highest/lowest).
 
 
 ## Technologies Used
@@ -59,6 +52,8 @@ The Recipe Search App is built using the following technologies:
 * React Hooks: Used to manage state and side effects in functional components
 * Fetch API: Used to retrieve data from the external recipe API
 * CSS: Styling the app for an appealing and intuitive user interface
+* @react-oauth/google: Used to integrate Google OAuth authentication.
+* jwt-decode: For decoding user tokens to personalize the UI.
 
 ### Trello
 <a href="https://trello.com/b/WRdU0BgY/recipe-finder" target="_blank">Trello Board used for planning</a>
@@ -69,7 +64,7 @@ The Recipe Search App is built using the following technologies:
 
 ## Deployed App
 
-The Recipe Finder App is deployed and can be accessed at: [https://recipe-finder.jaclyncarey.com/](https://recipe-finder.jaclyncarey.com/)
+The Recipe Finder App is deployed and can be accessed at: [https://recipe-finder-enhancement2.netlify.app/](https://recipe-finder-enhancement2.netlify.app/)
 
 ## Getting Started/Installation Instructions
 
@@ -88,8 +83,8 @@ To run the Recipe Finder App locally on your machine, follow these steps:
 The following features are planned for future implementation:
 
 * Pagination: Implement pagination for search results to display recipes in manageable chunks, allowing users to navigate through multiple pages of results.
-* User Login: Add user authentication functionality to allow users to create accounts and log in.
 * Save Recipes: Enable logged-in users to save recipes to their account for easy access and organization.
+* User-Generated Reviews: Allow logged-in users to submit, edit, and delete their own reviews stored in a database.
 
 
 ## Contribution Guidelines
