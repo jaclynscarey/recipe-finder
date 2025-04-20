@@ -22,11 +22,11 @@ The Recipe Finder App is a web application that allows users to search for recip
 
 ## Screenshots
 
-<a href="https://github.com/user-attachments/assets/567a0cfb-18c1-4aa8-aab1-5bd62b298c0b" target="_blank">
-  <img src="https://github.com/user-attachments/assets/567a0cfb-18c1-4aa8-aab1-5bd62b298c0b" alt="Screenshot 1" width="400">
+<a href="https://github.com/user-attachments/assets/cf8ea843-c62d-48c9-9344-76cbda9e3635" target="_blank">
+  <img src="https://github.com/user-attachments/assets/cf8ea843-c62d-48c9-9344-76cbda9e3635" alt="Screenshot 1" width="400">
 </a>
-<a href="https://github.com/user-attachments/assets/b9c486d6-3c1b-4a32-aa29-7ca1c6fac1de" target="_blank">
-  <img src="https://github.com/user-attachments/assets/b9c486d6-3c1b-4a32-aa29-7ca1c6fac1de" alt="Screenshot 2" width="400">
+<a href="https://github.com/user-attachments/assets/58595294-3bd2-482a-8baf-c4d578f21c54" target="_blank">
+  <img src="https://github.com/user-attachments/assets/58595294-3bd2-482a-8baf-c4d578f21c54" alt="Screenshot 2" width="400">
 </a>
 
 
